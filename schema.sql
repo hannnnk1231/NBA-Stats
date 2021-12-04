@@ -7,7 +7,7 @@ drop table if exists Position;
 drop table if exists Period;
 drop table if exists NBA_Players;
 drop table if exists match;
-drop table if exists Date;
+drop table if exists Date; 
 drop table if exists Teams;
 drop table if exists Arenas;
 drop table if exists Countries;
@@ -62,10 +62,11 @@ create table NBA_Players (
   height real,
   age integer,
   nationality varchar(32) not null,
-  p_name varchar(64) not null,
+  img varchar(128),
+  t_name varchar(64) not null,
   primary key (name, dob),
   foreign key (nationality) references Countries(name),
-  foreign key (p_name) references Teams(name)
+  foreign key (t_name) references Teams(name)
 );
 
 create table Position (
@@ -152,8 +153,8 @@ insert into Date (date) values ('2022-01-25');
 insert into match (host, guest, m_date, score_host, score_guest, arena) values ('Los Angeles Lakers', 'Brooklyn Nets', '2021-10-03', 97, 123, 'Staples Center');
 insert into match (host, guest, m_date, arena) values ('Brooklyn Nets', 'Los Angeles Lakers', '2022-01-25', 'Barclays Center');
 
-insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, p_name) values ('Kevin Durant', '1988-09-29', TRUE, 'The University of Texas at Austin', '2007-06-28', 5.0, 10.0, 29.8, 240, 2.08, 33, 'USA', 'Brooklyn Nets');
-insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, p_name) values ('LeBron James', '1984-12-30', TRUE, 'St. Vincent-St. Mary High School', '2003-06-26', 5.3, 6.3, 26.0, 250, 2.06, 36, 'USA', 'Los Angeles Lakers');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) values ('Kevin Durant', '1988-09-29', TRUE, 'The University of Texas at Austin', '2007-06-28', 5.0, 10.0, 29.8, 240, 2.08, 33, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201142.png','Brooklyn Nets');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) values ('LeBron James', '1984-12-30', TRUE, 'St. Vincent-St. Mary High School', '2003-06-26', 5.3, 6.3, 26.0, 250, 2.06, 36, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/2544.png', 'Los Angeles Lakers');
 
 insert into Position (name, abbr) values ('Small forward', 'SF');
 insert into Position (name, abbr) values ('Power forward', 'PF');
