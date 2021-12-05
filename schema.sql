@@ -71,25 +71,28 @@ create table NBA_Players (
 
 create table Position (
   name varchar(16) primary key,
-  abbr varchar(32) unique not null
+  abbr varchar(8) unique not null
 );
 
 create table Period (
-  from_date date not null,
-  to_date date not null,
+  from_date integer not null,
+  to_date integer not null,
+  player_name varchar(32) not null,
+  player_dob date not null,
+  t_name varchar(64) not null,
   number integer,
   salary integer,
-  primary key (from_date, to_date)
+  position varchar(8),
+  primary key (from_date, to_date, player_name, player_dob, t_name),
+  foreign key (t_name) references Teams(name),
+  foreign key (player_name, player_dob) references NBA_Players(name, dob)
 );
 
 create table Play_at (
   player_name varchar(32) not null,
   player_dob date,
   position_name varchar(16) not null,
-  from_date date,
-  to_date date,
-  primary key(player_name, player_dob, position_name, from_date, to_date),
-  foreign key (from_date, to_date) references Period(from_date, to_date),
+  primary key(player_name, player_dob, position_name),
   foreign key (player_name, player_dob) references NBA_Players(name, dob),
   foreign key (position_name) references Position(abbr)
 );
@@ -160,6 +163,7 @@ insert into Countries (name, continent) values ('Latvia', 'Europe');
 
 
 -- insert into Arenas (name, city, capacity) values ('Barclays Center', 'Brooklyn', 17732);
+
 insert into Arenas (name, city, capacity) values ('Capital One Arena', 'Washington, D.C.', 20356);
 insert into Arenas (name, city, capacity) values ('Chase Center', 'San Francisco', 18064);
 insert into Arenas (name, city, capacity) values ('Moda Center', 'Portland', 19441);
@@ -176,6 +180,10 @@ insert into Arenas (name, city, capacity) values ('Ball Arena', 'Denver', 19520)
 insert into Arenas (name, city, capacity) values ('American Airlines Center', 'Dallas', 19200);
 insert into Arenas (name, city, capacity) values ('Staples Center', 'Los Angeles', 18997);
 insert into Arenas (name, city, capacity) values ('Barclays Center', 'Brooklyn', 17732);
+insert into Arenas (name, city, capacity) values ('Wells Fargo Center', 'Philadelphia', 20478);
+insert into Arenas (name, city, capacity) values ('Rocket Mortgage FieldHouse', 'Cleveland', 19432);
+insert into Arenas (name, city, capacity) values ('FTX Arena', 'Miami', 19600);
+insert into Arenas (name, city, capacity) values ('Vivint Arena', 'Salt Lake City', 18306);
 
 -- insert into Teams (name, abbr, division, arena) values ('Brooklyn Nets', 'BKN', 'Atlantic', 'Barclays Center');
 
@@ -195,9 +203,14 @@ insert into Teams (name, abbr, division, arena) values ('New Orleans Pelicans', 
 insert into Teams (name, abbr, division, arena) values ('Indiana Pacers', 'IND', 'Central', 'Gainbridge Fieldhouse');
 insert into Teams (name, abbr, division, arena) values ('Denver Nuggets', 'DEN', 'Northwest', 'Ball Arena');
 insert into Teams (name, abbr, division, arena) values ('Dallas Mavericks', 'DAL', 'Southwest', 'American Airlines Center');
+insert into Teams (name, abbr, division, arena) values ('Philadelphia 76ers', 'PHI', 'Atlantic', 'Wells Fargo Center');
+insert into Teams (name, abbr, division, arena) values ('Cleveland Cavaliers', 'CLE', 'Central', 'Rocket Mortgage FieldHouse');
+insert into Teams (name, abbr, division, arena) values ('Miami Heat', 'MIA', 'Southeast', 'FTX Arena');
+insert into Teams (name, abbr, division, arena) values ('Utah Jazz', 'UTA', 'Northwest', 'Vivint Arena');
 
 -- insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, p_name) 
 --  values ('Kevin Durant', '1988-09-29', TRUE, 'The University of Texas at Austin', '2007-06-28', 5.0, 10.0, 29.8, 240, 2.08, 33, 'USA', 'Brooklyn Nets');
+
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
   values ('Bradley Beal', '1993-06-28', TRUE, 'University of Florida', '2012-06-28', 5.9, 5.0, 22.3, 207, 1.93, 28, 'USA', 'Washington Wizards', 'https://cdn.nba.com/headshots/nba/latest/260x190/203078.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
@@ -262,12 +275,21 @@ insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weigh
   values ('Kevin Durant', '1988-09-29', TRUE, 'The University of Texas at Austin', '2007-06-28', 5.0, 10.0, 29.8, 240, 2.08, 33, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201142.png','Brooklyn Nets');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
   values ('LeBron James', '1984-12-30', TRUE, 'St. Vincent-St. Mary High School', '2003-06-26', 5.3, 6.3, 26.0, 250, 2.06, 36, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/2544.png', 'Los Angeles Lakers');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Georges Niang', '1993-06-17', TRUE, 'Iowa State', '2016-06-28', 1.7, 2.7, 11.3, 230, 2.01, 28, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627777.png', 'Philadelphia 76ers');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Tyrese Maxey', '2000-04-11', TRUE, 'Kentucky', '2020-06-28', 4.9, 3.8, 17.2, 200, 1.88, 21, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630178.png', 'Philadelphia 76ers');
+
 
 insert into Date (date) values ('2021-10-03');
 insert into Date (date) values ('2022-01-25');
 
-insert into match (host, guest, m_date, score_host, score_guest, arena) values ('Los Angeles Lakers', 'Brooklyn Nets', '2021-10-03', 97, 123, 'Staples Center');
-insert into match (host, guest, m_date, arena) values ('Brooklyn Nets', 'Los Angeles Lakers', '2022-01-25', 'Barclays Center');
+
+insert into match (host, guest, m_date, score_host, score_guest, arena) 
+  values ('Los Angeles Lakers', 'Brooklyn Nets', '2021-10-03', 97, 123, 'Staples Center');
+insert into match (host, guest, m_date, arena) 
+  values ('Brooklyn Nets', 'Los Angeles Lakers', '2022-01-25', 'Barclays Center');
+
 
 insert into Position (name, abbr) values ('Small forward', 'SF');
 insert into Position (name, abbr) values ('Power forward', 'PF');
@@ -275,18 +297,51 @@ insert into Position (name, abbr) values ('Point guard', 'PG');
 insert into Position (name, abbr) values ('Shooting guard', 'SG');
 insert into Position (name, abbr) values ('Center', 'C');
 
-insert into Period (from_date, to_date, number, salary) values ('2003-9-02', '2021-10-29', 23, 5000);
-insert into Period (from_date, to_date, number, salary) values ('2007-9-02', '2021-10-29', 7, 4000);
-insert into Period (from_date, to_date, number, salary) values ('2012-9-02', '2021-10-29', 3, 3000);
 
-insert into Play_at (player_name, player_dob, position_name, from_date, to_date) values ('LeBron James', '1984-12-30', 'SF', '2003-9-02', '2021-10-29');
-insert into Play_at (player_name, player_dob, position_name, from_date, to_date) values ('Kevin Durant', '1988-09-29', 'PF', '2007-9-02', '2021-10-29');
-insert into Play_at (player_name, player_dob, position_name, from_date, to_date) values ('Bradley Beal', '1993-06-28', 'SG', '2012-9-02', '2021-10-29');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2003, 2010, 'LeBron James', '1984-12-30', 'Cleveland Cavaliers', 23, 5000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2010, 2012, 'LeBron James', '1984-12-30', 'Miami Heat', 6, 5000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2012, 2014, 'LeBron James', '1984-12-30', 'Miami Heat', 6, 5000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2014, 2018, 'LeBron James', '1984-12-30', 'Cleveland Cavaliers', 23, 5000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2022, 'LeBron James', '1984-12-30', 'Los Angeles Lakers', 23, 5000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2008, 2016, 'Kevin Durant', '1988-09-29', 'Oklahoma City Thunder', 35, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2019, 'Kevin Durant', '1988-09-29', 'Golden State Warriors', 35, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'Kevin Durant', '1988-09-29', 'Brooklyn Nets', 7, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2017, 'Georges Niang', '1993-06-17', 'Indiana Pacers', 32, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2021, 'Georges Niang', '1993-06-17', 'Utah Jazz', 31, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Georges Niang', '1993-06-17', 'Philadelphia 76ers', 20, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'Tyrese Maxey', '2000-04-11', 'Philadelphia 76ers', 0, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2012, 2022, 'Bradley Beal', '1993-06-28', 'Washington Wizards', 3, 4000, 'SG');
 
-insert into Awards (name, date, t_name, p_name, p_dob) values ('2019-2020 NBA Championship', '2020-10-11', 'Los Angeles Lakers', 'LeBron James', '1984-12-30');
-insert into Awards (name, date, t_name, p_name, p_dob) values ('2019-2020 NBA Final MVP', '2020-10-11', null, 'LeBron James', '1984-12-30');
 
-insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) values ('Scarlett Johansson', 36, 'F', 'Actress', '2011-01-16', 'Kevin Durant', '1988-09-29');
+insert into Play_at (player_name, player_dob, position_name) values ('LeBron James', '1984-12-30', 'SF');
+insert into Play_at (player_name, player_dob, position_name) values ('Kevin Durant', '1988-09-29', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Bradley Beal', '1993-06-28', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Georges Niang', '1993-06-17', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Tyrese Maxey', '2000-04-11', 'SG');
+
+
+insert into Awards (name, date, t_name, p_name, p_dob) 
+  values ('2019-2020 NBA Championship', '2020-10-11', 'Los Angeles Lakers', 'LeBron James', '1984-12-30');
+insert into Awards (name, date, t_name, p_name, p_dob) 
+  values ('2019-2020 NBA Final MVP', '2020-10-11', null, 'LeBron James', '1984-12-30');
+
+
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Scarlett Johansson', 36, 'F', 'Actress', '2011-01-16', 'Kevin Durant', '1988-09-29');
+
 
 insert into Injuries (name, date, player_name, player_dob) values ('Right Ankle', '2021-10-25', 'LeBron James', '1984-12-30');
 insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-05-25', 'LeBron James', '1984-12-30');
