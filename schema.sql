@@ -71,7 +71,7 @@ create table NBA_Players (
 
 create table Position (
   name varchar(16) primary key,
-  abbr varchar(32)
+  abbr varchar(32) unique not null
 );
 
 create table Period (
@@ -91,7 +91,7 @@ create table Play_at (
   primary key(player_name, player_dob, position_name, from_date, to_date),
   foreign key (from_date, to_date) references Period(from_date, to_date),
   foreign key (player_name, player_dob) references NBA_Players(name, dob),
-  foreign key (position_name) references Position(name)
+  foreign key (position_name) references Position(abbr)
 );
 
 
@@ -279,9 +279,9 @@ insert into Period (from_date, to_date, number, salary) values ('2003-9-02', '20
 insert into Period (from_date, to_date, number, salary) values ('2007-9-02', '2021-10-29', 7, 4000);
 insert into Period (from_date, to_date, number, salary) values ('2012-9-02', '2021-10-29', 3, 3000);
 
-insert into Play_at (player_name, player_dob, position_name, from_date, to_date) values ('LeBron James', '1984-12-30', 'Small forward', '2003-9-02', '2021-10-29');
-insert into Play_at (player_name, player_dob, position_name, from_date, to_date) values ('Kevin Durant', '1988-09-29', 'Power forward', '2007-9-02', '2021-10-29');
-insert into Play_at (player_name, player_dob, position_name, from_date, to_date) values ('Bradley Beal', '1993-06-28', 'Shooting guard', '2012-9-02', '2021-10-29');
+insert into Play_at (player_name, player_dob, position_name, from_date, to_date) values ('LeBron James', '1984-12-30', 'SF', '2003-9-02', '2021-10-29');
+insert into Play_at (player_name, player_dob, position_name, from_date, to_date) values ('Kevin Durant', '1988-09-29', 'PF', '2007-9-02', '2021-10-29');
+insert into Play_at (player_name, player_dob, position_name, from_date, to_date) values ('Bradley Beal', '1993-06-28', 'SG', '2012-9-02', '2021-10-29');
 
 insert into Awards (name, date, t_name, p_name, p_dob) values ('2019-2020 NBA Championship', '2020-10-11', 'Los Angeles Lakers', 'LeBron James', '1984-12-30');
 insert into Awards (name, date, t_name, p_name, p_dob) values ('2019-2020 NBA Final MVP', '2020-10-11', null, 'LeBron James', '1984-12-30');

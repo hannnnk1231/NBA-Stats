@@ -92,14 +92,14 @@ def players():
     team = st.sidebar.selectbox("Team", ["All Teams"]+query_db(sql_team_names)["name"].tolist())
     position = st.sidebar.selectbox("Position", ["All Positions"]+query_db(sql_positions)["name"].tolist())
     country = st.sidebar.selectbox("Country", ["All Countries"]+query_db(sql_countries)["name"].tolist())
-    sql_players = "SELECT p.name, p.dob, p.img, t.abbr FROM nba_players p, teams t, play_at pa WHERE p.t_name = t.name AND p.name = pa.player_name"
+    sql_players = "SELECT p.name, p.dob, p.img, t.abbr FROM nba_players p, teams t, play_at pa, position po WHERE p.t_name = t.name AND p.name = pa.player_name AND pa.position_name = po.abbr"
     conditions = []
     if playerName:
         conditions.append("p.name LIKE '%{}%'".format(playerName))
     if team != "All Teams":
         conditions.append("p.t_name = '{}'".format(team))
     if position != "All Positions":
-        conditions.append("pa.position_name = '{}'".format(position))
+        conditions.append("po.name = '{}'".format(position))
     if country != "All Countries":
         conditions.append("p.nationality = '{}'".format(country))
     if conditions:
