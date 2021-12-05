@@ -184,6 +184,16 @@ insert into Arenas (name, city, capacity) values ('Wells Fargo Center', 'Philade
 insert into Arenas (name, city, capacity) values ('Rocket Mortgage FieldHouse', 'Cleveland', 19432);
 insert into Arenas (name, city, capacity) values ('FTX Arena', 'Miami', 19600);
 insert into Arenas (name, city, capacity) values ('Vivint Arena', 'Salt Lake City', 18306);
+insert into Arenas (name, city, capacity) values ('Fiserv Forum', 'Milwaukee', 17341);
+insert into Arenas (name, city, capacity) values ('United Center', 'Chicago', 20917);
+insert into Arenas (name, city, capacity) values ('TD Garden', 'Boston', 19156);
+insert into Arenas (name, city, capacity) values ('Staples Center', 'Los Angeles', 19079);
+insert into Arenas (name, city, capacity) values ('FedExForum', 'Memphis', 18119);
+insert into Arenas (name, city, capacity) values ('State Farm Arena', 'Atlanta', 16600);
+insert into Arenas (name, city, capacity) values ('Spectrum Center', 'Charlotte', 19077);
+insert into Arenas (name, city, capacity) values ('Golden 1 Center', 'Sacramento', 17608);
+insert into Arenas (name, city, capacity) values ('Madison Square Garden', 'New York', 19812);
+insert into Arenas (name, city, capacity) values ('Amway Center', 'Orlando', 18846);
 
 -- insert into Teams (name, abbr, division, arena) values ('Brooklyn Nets', 'BKN', 'Atlantic', 'Barclays Center');
 
@@ -207,6 +217,16 @@ insert into Teams (name, abbr, division, arena) values ('Philadelphia 76ers', 'P
 insert into Teams (name, abbr, division, arena) values ('Cleveland Cavaliers', 'CLE', 'Central', 'Rocket Mortgage FieldHouse');
 insert into Teams (name, abbr, division, arena) values ('Miami Heat', 'MIA', 'Southeast', 'FTX Arena');
 insert into Teams (name, abbr, division, arena) values ('Utah Jazz', 'UTA', 'Northwest', 'Vivint Arena');
+insert into Teams (name, abbr, division, arena) values ('Milwaukee Bucks', 'MIL', 'Central', 'Fiserv Forum');
+insert into Teams (name, abbr, division, arena) values ('Chicago Bulls', 'CHI', 'Central', 'United Center');
+insert into Teams (name, abbr, division, arena) values ('Boston Celtics', 'BOS', 'Atlantic', 'TD Garden');
+insert into Teams (name, abbr, division, arena) values ('Los Angeles Clippers', 'LAC', 'Pacific', 'Staples Center');
+insert into Teams (name, abbr, division, arena) values ('Memphis Grizzlies', 'MEM', 'Southwest', 'FedExForum');
+insert into Teams (name, abbr, division, arena) values ('Atlanta Hawks', 'ATL', 'Southeast', 'State Farm Arena');
+insert into Teams (name, abbr, division, arena) values ('Charlotte Hornets', 'CHA', 'Southeast', 'Spectrum Center');
+insert into Teams (name, abbr, division, arena) values ('Sacramento Kings', 'SAC', 'Pacific', 'Golden 1 Center');
+insert into Teams (name, abbr, division, arena) values ('New York Knicks', 'NYK', 'Atlantic', 'Madison Square Garden');
+insert into Teams (name, abbr, division, arena) values ('Orlando Magic', 'ORL', 'Southeast', 'Amway Center');
 
 -- insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, p_name) 
 --  values ('Kevin Durant', '1988-09-29', TRUE, 'The University of Texas at Austin', '2007-06-28', 5.0, 10.0, 29.8, 240, 2.08, 33, 'USA', 'Brooklyn Nets');
