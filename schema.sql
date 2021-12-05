@@ -187,7 +187,6 @@ insert into Arenas (name, city, capacity) values ('Vivint Arena', 'Salt Lake Cit
 insert into Arenas (name, city, capacity) values ('Fiserv Forum', 'Milwaukee', 17341);
 insert into Arenas (name, city, capacity) values ('United Center', 'Chicago', 20917);
 insert into Arenas (name, city, capacity) values ('TD Garden', 'Boston', 19156);
-insert into Arenas (name, city, capacity) values ('Staples Center', 'Los Angeles', 19079);
 insert into Arenas (name, city, capacity) values ('FedExForum', 'Memphis', 18119);
 insert into Arenas (name, city, capacity) values ('State Farm Arena', 'Atlanta', 16600);
 insert into Arenas (name, city, capacity) values ('Spectrum Center', 'Charlotte', 19077);
