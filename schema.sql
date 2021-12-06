@@ -6,7 +6,8 @@ drop table if exists Awards;
 drop table if exists Position;
 drop table if exists Period;
 drop table if exists NBA_Players;
-drop table if exists match;
+drop table if exists Match;
+drop table if exists Match_type;
 drop table if exists Date; 
 drop table if exists Teams;
 drop table if exists Arenas;
@@ -28,6 +29,7 @@ create table Teams (
   abbr varchar(16),
   division varchar(16) not null,
   arena varchar(32) not null,
+  logo varchar(128),
   foreign key (arena) references Arenas(name)
 );
 
@@ -35,14 +37,20 @@ create table Date (
   date date primary key
 );
 
-create table match (
+create table Match_type (
+  name varchar(32) primary key
+);
+
+create table Match (
   host varchar(64),
   guest varchar(64),
   m_date date,
   primary key(host, guest, m_date),
   score_host integer,
   score_guest integer,
+  m_type varchar(32) not null,
   arena varchar(32) not null,
+  foreign key (m_type) references Match_type(name),
   foreign key (host) references Teams(name),
   foreign key (guest) references Teams(name),
   foreign key (m_date) references Date(date),
@@ -196,36 +204,36 @@ insert into Arenas (name, city, capacity) values ('Amway Center', 'Orlando', 188
 
 -- insert into Teams (name, abbr, division, arena) values ('Brooklyn Nets', 'BKN', 'Atlantic', 'Barclays Center');
 
-insert into Teams (name, abbr, division, arena) values ('Brooklyn Nets', 'BKN', 'Atlantic', 'Barclays Center');
-insert into Teams (name, abbr, division, arena) values ('Los Angeles Lakers', 'LAL', 'Pacific', 'Staples Center');
-insert into Teams (name, abbr, division, arena) values ('Washington Wizards', 'WAS', 'Southeast', 'Capital One Arena');
-insert into Teams (name, abbr, division, arena) values ('Golden State Warriors', 'GSW', 'Pacific', 'Chase Center');
-insert into Teams (name, abbr, division, arena) values ('Portland Trail Blazers', 'POR', 'Northwest', 'Moda Center');
-insert into Teams (name, abbr, division, arena) values ('Minnesota Timberwolves', 'MIN', 'Northwest', 'Target Center');
-insert into Teams (name, abbr, division, arena) values ('Oklahoma City Thunder', 'OKC', 'Northwest', 'Paycom Center');
-insert into Teams (name, abbr, division, arena) values ('Phoenix Suns', 'PHX', 'Pacific', 'Footprint Center');
-insert into Teams (name, abbr, division, arena) values ('San Antonio Spurs', 'SAS', 'Southwest', 'AT&T Center');
-insert into Teams (name, abbr, division, arena) values ('Houston Rockets', 'HOU', 'Southwest', 'Toyota Center');
-insert into Teams (name, abbr, division, arena) values ('Toronto Raptors', 'TOR', 'Atlantic', 'Scotiabank Arena');
-insert into Teams (name, abbr, division, arena) values ('Detroit Pistons', 'DET', 'Central', 'Little Caesars Arena');
-insert into Teams (name, abbr, division, arena) values ('New Orleans Pelicans', 'NOP', 'Southwest', 'Smoothie King Center');
-insert into Teams (name, abbr, division, arena) values ('Indiana Pacers', 'IND', 'Central', 'Gainbridge Fieldhouse');
-insert into Teams (name, abbr, division, arena) values ('Denver Nuggets', 'DEN', 'Northwest', 'Ball Arena');
-insert into Teams (name, abbr, division, arena) values ('Dallas Mavericks', 'DAL', 'Southwest', 'American Airlines Center');
-insert into Teams (name, abbr, division, arena) values ('Philadelphia 76ers', 'PHI', 'Atlantic', 'Wells Fargo Center');
-insert into Teams (name, abbr, division, arena) values ('Cleveland Cavaliers', 'CLE', 'Central', 'Rocket Mortgage FieldHouse');
-insert into Teams (name, abbr, division, arena) values ('Miami Heat', 'MIA', 'Southeast', 'FTX Arena');
-insert into Teams (name, abbr, division, arena) values ('Utah Jazz', 'UTA', 'Northwest', 'Vivint Arena');
-insert into Teams (name, abbr, division, arena) values ('Milwaukee Bucks', 'MIL', 'Central', 'Fiserv Forum');
-insert into Teams (name, abbr, division, arena) values ('Chicago Bulls', 'CHI', 'Central', 'United Center');
-insert into Teams (name, abbr, division, arena) values ('Boston Celtics', 'BOS', 'Atlantic', 'TD Garden');
-insert into Teams (name, abbr, division, arena) values ('Los Angeles Clippers', 'LAC', 'Pacific', 'Staples Center');
-insert into Teams (name, abbr, division, arena) values ('Memphis Grizzlies', 'MEM', 'Southwest', 'FedExForum');
-insert into Teams (name, abbr, division, arena) values ('Atlanta Hawks', 'ATL', 'Southeast', 'State Farm Arena');
-insert into Teams (name, abbr, division, arena) values ('Charlotte Hornets', 'CHA', 'Southeast', 'Spectrum Center');
-insert into Teams (name, abbr, division, arena) values ('Sacramento Kings', 'SAC', 'Pacific', 'Golden 1 Center');
-insert into Teams (name, abbr, division, arena) values ('New York Knicks', 'NYK', 'Atlantic', 'Madison Square Garden');
-insert into Teams (name, abbr, division, arena) values ('Orlando Magic', 'ORL', 'Southeast', 'Amway Center');
+insert into Teams (name, abbr, division, arena, logo) values ('Brooklyn Nets', 'BKN', 'Atlantic', 'Barclays Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/bkn.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Los Angeles Lakers', 'LAL', 'Pacific', 'Staples Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/lal.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Washington Wizards', 'WAS', 'Southeast', 'Capital One Arena', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/was.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Golden State Warriors', 'GSW', 'Pacific', 'Chase Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/gsw.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Portland Trail Blazers', 'POR', 'Northwest', 'Moda Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/por.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Minnesota Timberwolves', 'MIN', 'Northwest', 'Target Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/min.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Oklahoma City Thunder', 'OKC', 'Northwest', 'Paycom Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/okc.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Phoenix Suns', 'PHX', 'Pacific', 'Footprint Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/phx.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('San Antonio Spurs', 'SAS', 'Southwest', 'AT&T Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/sas.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Houston Rockets', 'HOU', 'Southwest', 'Toyota Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/hou.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Toronto Raptors', 'TOR', 'Atlantic', 'Scotiabank Arena', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/tor.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Detroit Pistons', 'DET', 'Central', 'Little Caesars Arena', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/det.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('New Orleans Pelicans', 'NOP', 'Southwest', 'Smoothie King Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/nop.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Indiana Pacers', 'IND', 'Central', 'Gainbridge Fieldhouse', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/ind.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Denver Nuggets', 'DEN', 'Northwest', 'Ball Arena', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/den.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Dallas Mavericks', 'DAL', 'Southwest', 'American Airlines Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/dal.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Philadelphia 76ers', 'PHI', 'Atlantic', 'Wells Fargo Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/phi.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Cleveland Cavaliers', 'CLE', 'Central', 'Rocket Mortgage FieldHouse', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/cle.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Miami Heat', 'MIA', 'Southeast', 'FTX Arena', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/mia.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Utah Jazz', 'UTA', 'Northwest', 'Vivint Arena', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/uta.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Milwaukee Bucks', 'MIL', 'Central', 'Fiserv Forum', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/mil.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Chicago Bulls', 'CHI', 'Central', 'United Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/chi.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Boston Celtics', 'BOS', 'Atlantic', 'TD Garden', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/bos.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Los Angeles Clippers', 'LAC', 'Pacific', 'Staples Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/lac.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Memphis Grizzlies', 'MEM', 'Southwest', 'FedExForum', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/mem.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Atlanta Hawks', 'ATL', 'Southeast', 'State Farm Arena', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/atl.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Charlotte Hornets', 'CHA', 'Southeast', 'Spectrum Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/cha.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Sacramento Kings', 'SAC', 'Pacific', 'Golden 1 Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/sac.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('New York Knicks', 'NYK', 'Atlantic', 'Madison Square Garden', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/nyk.gif');
+insert into Teams (name, abbr, division, arena, logo) values ('Orlando Magic', 'ORL', 'Southeast', 'Amway Center', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/orl.gif');
 
 -- insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, p_name) 
 --  values ('Kevin Durant', '1988-09-29', TRUE, 'The University of Texas at Austin', '2007-06-28', 5.0, 10.0, 29.8, 240, 2.08, 33, 'USA', 'Brooklyn Nets');
@@ -300,14 +308,30 @@ insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weigh
   values ('Tyrese Maxey', '2000-04-11', TRUE, 'Kentucky', '2020-06-28', 4.9, 3.8, 17.2, 200, 1.88, 21, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630178.png', 'Philadelphia 76ers');
 
 
+insert into Date (date) values ('2021-06-10');
 insert into Date (date) values ('2021-10-03');
+insert into Date (date) values ('2021-10-19');
 insert into Date (date) values ('2022-01-25');
 
+insert into Match_type (name) values ('preseason');
+insert into Match_type (name) values ('regular season');
+insert into Match_type (name) values ('postseason');
+insert into Match_type (name) values ('NBA Finals');
 
-insert into match (host, guest, m_date, score_host, score_guest, arena) 
-  values ('Los Angeles Lakers', 'Brooklyn Nets', '2021-10-03', 97, 123, 'Staples Center');
-insert into match (host, guest, m_date, arena) 
-  values ('Brooklyn Nets', 'Los Angeles Lakers', '2022-01-25', 'Barclays Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Los Angeles Lakers', 'Brooklyn Nets', '2021-10-03', 97, 123, 'preseason','Staples Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Los Angeles Lakers', 'Golden State Warriors', '2021-10-19', 114, 121, 'regular season','Staples Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Milwaukee Bucks', 'Brooklyn Nets', '2021-10-19', 127, 104, 'regular season','Fiserv Forum');
+
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Milwaukee Bucks', 'Brooklyn Nets', '2021-06-10', 86, 83, 'postseason','Fiserv Forum');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Utah Jazz', 'Los Angeles Clippers', '2021-06-10', 117, 111, 'postseason','Vivint Arena');
+
+insert into Match (host, guest, m_date, m_type, arena) 
+  values ('Brooklyn Nets', 'Los Angeles Lakers', '2022-01-25', 'regular season', 'Barclays Center');
 
 
 insert into Position (name, abbr) values ('Small forward', 'SF');
