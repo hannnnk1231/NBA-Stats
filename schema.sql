@@ -168,7 +168,8 @@ insert into Countries (name, continent) values ('Czech Republic', 'Europe');
 insert into Countries (name, continent) values ('Lithuania', 'Europe');
 insert into Countries (name, continent) values ('Slovenia', 'Europe');
 insert into Countries (name, continent) values ('Latvia', 'Europe');
-
+insert into Countries (name, continent) values ('Greece', 'Europe');
+insert into Countries (name, continent) values ('Spain', 'Europe');
 
 -- insert into Arenas (name, city, capacity) values ('Barclays Center', 'Brooklyn', 17732);
 
@@ -306,6 +307,18 @@ insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weigh
   values ('Georges Niang', '1993-06-17', TRUE, 'Iowa State', '2016-06-28', 1.7, 2.7, 11.3, 230, 2.01, 28, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627777.png', 'Philadelphia 76ers');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
   values ('Tyrese Maxey', '2000-04-11', TRUE, 'Kentucky', '2020-06-28', 4.9, 3.8, 17.2, 200, 1.88, 21, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630178.png', 'Philadelphia 76ers');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Giannis Antetokounmpo', '1994-12-06', TRUE, 'Filathlitikos', '2013-06-28', 6.0, 11.8, 27.6, 242, 2.11, 26, 'Greece', 'https://cdn.nba.com/headshots/nba/latest/260x190/203507.png', 'Milwaukee Bucks');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Jrue Holiday', '1990-06-12', TRUE, 'UCLA', '2009-06-28', 6.1, 4.7, 15.3, 205, 1.91, 31, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201950.png', 'Milwaukee Bucks');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('DeMar DeRozan', '1989-08-07', TRUE, 'Southern California', '2009-06-28', 4.1, 5.3, 26.4, 220, 1.98, 32, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201942.png', 'Chicago Bulls');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Zach LaVine', '1995-03-10', TRUE, 'UCLA', '2014-06-28', 3.9, 5.4, 25.6, 200, 1.96, 26, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/203897.png', 'Chicago Bulls');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Ricky Rubio', '1990-10-21', TRUE, 'FC Barcelona', '2009-06-28', 6.3, 4.0, 13.5, 190, 1.88, 31, 'Spain', 'https://cdn.nba.com/headshots/nba/latest/260x190/201937.png', 'Cleveland Cavaliers');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Darius Garland', '2000-01-26', TRUE, 'Vanderbilt', '2019-06-28', 7.3, 2.9, 19.1, 192, 1.85, 21, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1629636.png', 'Cleveland Cavaliers');
 
 
 insert into Date (date) values ('2021-06-10');
@@ -367,14 +380,56 @@ insert into Period (from_date, to_date, player_name, player_dob, t_name, number,
   values (2020, 2022, 'Tyrese Maxey', '2000-04-11', 'Philadelphia 76ers', 0, 4000, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
   values (2012, 2022, 'Bradley Beal', '1993-06-28', 'Washington Wizards', 3, 4000, 'SG');
-
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2013, 2017, 'Giannis Antetokounmpo', '1994-12-06', 'Milwaukee Bucks', 34, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2022, 'Giannis Antetokounmpo', '1994-12-06', 'Milwaukee Bucks', 34, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2009, 2013, 'Jrue Holiday', '1990-06-12', 'Philadelphia 76ers', 11, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2013, 2017, 'Jrue Holiday', '1990-06-12', 'New Orleans Pelicans', 11, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2020, 'Jrue Holiday', '1990-06-12', 'New Orleans Pelicans', 11, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2021, 'Jrue Holiday', '1990-06-12', 'Milwaukee Bucks', 11, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Jrue Holiday', '1990-06-12', 'Milwaukee Bucks', 11, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2009, 2018, 'DeMar DeRozan', '1989-08-07', 'Toronto Raptors', 10, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2021, 'DeMar DeRozan', '1989-08-07', 'San Antonio Spurs', 10, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'DeMar DeRozan', '1989-08-07', 'Chicago Bulls', 11, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2014, 2015, 'Zach LaVine', '1995-03-10', 'Minnesota Timberwolves', 8, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2015, 2017, 'Zach LaVine', '1995-03-10', 'Minnesota Timberwolves', 8, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2022, 'Zach LaVine', '1995-03-10', 'Chicago Bulls', 8, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2011, 2017, 'Ricky Rubio', '1990-10-21', 'Minnesota Timberwolves', 9, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2019, 'Ricky Rubio', '1990-10-21', 'Utah Jazz', 3, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2020, 'Ricky Rubio', '1990-10-21', 'Phoenix Suns', 11, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2021, 'Ricky Rubio', '1990-10-21', 'Minnesota Timberwolves', 9, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Ricky Rubio', '1990-10-21', 'Cleveland Cavaliers', 3, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Darius Garland', '2000-01-26', 'Cleveland Cavaliers', 3, 4000, 'PG');
 
 insert into Play_at (player_name, player_dob, position_name) values ('LeBron James', '1984-12-30', 'SF');
 insert into Play_at (player_name, player_dob, position_name) values ('Kevin Durant', '1988-09-29', 'PF');
 insert into Play_at (player_name, player_dob, position_name) values ('Bradley Beal', '1993-06-28', 'SG');
 insert into Play_at (player_name, player_dob, position_name) values ('Georges Niang', '1993-06-17', 'PF');
 insert into Play_at (player_name, player_dob, position_name) values ('Tyrese Maxey', '2000-04-11', 'SG');
-
+insert into Play_at (player_name, player_dob, position_name) values ('Giannis Antetokounmpo', '1994-12-06', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Jrue Holiday', '1990-06-12', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('DeMar DeRozan', '1989-08-07', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Zach LaVine', '1995-03-10', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Ricky Rubio', '1990-10-21', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Darius Garland', '2000-01-26', 'PG');
 
 insert into Awards (name, date, t_name, p_name, p_dob) 
   values ('2019-2020 NBA Championship', '2020-10-11', 'Los Angeles Lakers', 'LeBron James', '1984-12-30');
