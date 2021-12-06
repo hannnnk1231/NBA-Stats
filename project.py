@@ -15,7 +15,7 @@ def get_config(filename="database.ini", section="postgresql"):
     return {k: v for k, v in parser.items(section)}
 
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def query_db(sql: str):
     #print(f"Running query_db(): {sql}")
 
@@ -82,7 +82,33 @@ def render_player_page(name, dob, img):
     st.write(crimes)
 
 def matches():
-    pass
+    sql_team = "SELECT name FROM Teams ORDER BY name;"
+    sql_date = "SELECT date FROM Date ORDER BY date desc;"
+    m_date = st.sidebar.selectbox("Date", ["All Dates"] + query_db(sql_date)["date"].tolist())
+    team = st.sidebar.selectbox("Team", ["All Teams"] + query_db(sql_team)["name"].tolist())
+    sql_matches = "SELECT DISTINCT m.host, t1.abbr, m.score_host, m.m_date, m.score_guest, t2.abbr, m.guest, t1.logo, t2.logo, m.m_type, m.arena FROM Match m, Teams t1, Teams t2, NBA_Players p WHERE m.host = t1.name AND m.guest = t2.name"
+    conditions = []
+    if m_date != "All Dates":
+        conditions.append("m.m_date = '{}'".format(m_date))
+    if team != "All Teams":
+        conditions.append("m.host = '{}'".format(team))
+    if conditions:
+        sql_matches += " AND " + " AND ".join(conditions)
+    sql_matches += " ORDER BY m.m_date DESC, m.host"
+    df = query_db(sql_matches)
+    for i in range(len(df)):
+        scorehost, scoreguest = df.iloc[i,2], df.iloc[i,4]
+        hostname, hostabbr, matchdate, guestname, guestabbr = df.iloc[i,0], df.iloc[i,1], df.iloc[i,3], df.iloc[i,6], df.iloc[i,5]
+        col1, col2, col3, col4, col5, col6 = st.columns([2, 6, 6, 4, 2, 4])
+        col1.image(df.iloc[i,-4])
+        col2.metric(f"{hostname}, {hostabbr}", '{:d}'.format(int((scorehost, 0)[pd.isna(scorehost)])))
+        col3.metric("date", f"{matchdate}")
+        col4.metric(f"{guestname}, {guestabbr}", '{:d}'.format(int((scoreguest, 0)[pd.isna(scoreguest)])))
+        col5.image(df.iloc[i,-3])
+        my_expander = col6.expander("more", expanded = False)
+        with my_expander:
+            st.write(f"Arena: {df.iloc[i,-1]}")
+            st.write(f"A {df.iloc[i,-2]} game")
 
 def players():
     sql_team_names = "SELECT name FROM teams;"
