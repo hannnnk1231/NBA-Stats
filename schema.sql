@@ -62,7 +62,7 @@ create table NBA_Players (
   dob date,
   status boolean not null,
   college varchar(64),
-  draft date,
+  draft integer,
   APG real,
   RPG real,
   PPG real,
@@ -170,6 +170,8 @@ insert into Countries (name, continent) values ('Slovenia', 'Europe');
 insert into Countries (name, continent) values ('Latvia', 'Europe');
 insert into Countries (name, continent) values ('Greece', 'Europe');
 insert into Countries (name, continent) values ('Spain', 'Europe');
+insert into Countries (name, continent) values ('Dominican Republic', 'North America');
+insert into Countries (name, continent) values ('New Zealand', 'Oceania');
 
 -- insert into Arenas (name, city, capacity) values ('Barclays Center', 'Brooklyn', 17732);
 
@@ -240,85 +242,131 @@ insert into Teams (name, abbr, division, arena, logo) values ('Orlando Magic', '
 --  values ('Kevin Durant', '1988-09-29', TRUE, 'The University of Texas at Austin', '2007-06-28', 5.0, 10.0, 29.8, 240, 2.08, 33, 'USA', 'Brooklyn Nets');
 
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Bradley Beal', '1993-06-28', TRUE, 'University of Florida', '2012-06-28', 5.9, 5.0, 22.3, 207, 1.93, 28, 'USA', 'Washington Wizards', 'https://cdn.nba.com/headshots/nba/latest/260x190/203078.png');
+  values ('Bradley Beal', '1993-06-28', TRUE, 'University of Florida', 2012, 4.1, 4.1, 22.0, 207, 1.93, 28, 'USA', 'Washington Wizards', 'https://cdn.nba.com/headshots/nba/latest/260x190/203078.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Kyle Kuzma', '1995-07-24', TRUE, 'The University of Utah', '2017-06-28', 2.8, 8.7, 13.0, 221, 2.06, 26, 'USA', 'Washington Wizards', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628398.png');
+  values ('Kyle Kuzma', '1995-07-24', TRUE, 'The University of Utah', 2017, 2.0, 5.9, 15.0, 221, 2.06, 26, 'USA', 'Washington Wizards', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628398.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Stephen Curry', '1988-03-14', TRUE, 'Davidson College', '2009-06-28', 6.5, 5.6, 27.6, 185, 1.88, 33, 'USA', 'Golden State Warriors', 'https://cdn.nba.com/headshots/nba/latest/260x190/201939.png');
+  values ('Stephen Curry', '1988-03-14', TRUE, 'Davidson College', 2009, 6.5, 4.6, 24.3, 185, 1.88, 33, 'USA', 'Golden State Warriors', 'https://cdn.nba.com/headshots/nba/latest/260x190/201939.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Andrew Wiggins', '1995-02-23', TRUE, 'Kansas University', '2014-06-28', 1.6, 4.5, 18.6, 197, 2.01, 26, 'Canada', 'Golden State Warriors', 'https://cdn.nba.com/headshots/nba/latest/260x190/203952.png');
+  values ('Andrew Wiggins', '1995-02-23', TRUE, 'Kansas University', 2014, 2.3, 4.4, 19.5, 197, 2.01, 26, 'Canada', 'Golden State Warriors', 'https://cdn.nba.com/headshots/nba/latest/260x190/203952.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Damian Lillard', '1990-07-15', TRUE, 'Weber State University', '2012-06-28', 7.8, 4.0, 21.5, 195, 1.88, 33, 'USA', 'Portland Trail Blazers', 'https://cdn.nba.com/headshots/nba/latest/260x190/203081.png');
+  values ('Damian Lillard', '1990-07-15', TRUE, 'Weber State University', 2012, 6.7, 4.2, 24.6, 195, 1.88, 33, 'USA', 'Portland Trail Blazers', 'https://cdn.nba.com/headshots/nba/latest/260x190/203081.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Jusuf Nurkic', '1994-08-23', TRUE, 'Cedevita', '2014-06-28', 2.3, 10.6, 12.4, 290, 2.11, 27, 'Bosnia and Herzegovina', 'Portland Trail Blazers', 'https://cdn.nba.com/headshots/nba/latest/260x190/203994.png');
+  values ('Jusuf Nurkic', '1994-08-23', TRUE, 'Cedevita', 2014, 2.1, 8.3, 11.8, 290, 2.11, 27, 'Bosnia and Herzegovina', 'Portland Trail Blazers', 'https://cdn.nba.com/headshots/nba/latest/260x190/203994.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Anthony Edwards', '2001-08-05', TRUE, 'Georgia', '2020-06-28', 3.6, 6.3, 22.0, 225, 1.93, 20, 'USA', 'Minnesota Timberwolves', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630162.png');
+  values ('Anthony Edwards', '2001-08-05', TRUE, 'Georgia', 2020, 3.6, 6.3, 22.0, 225, 1.93, 20, 'USA', 'Minnesota Timberwolves', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630162.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Leandro Bolmaro', '2000-09-11', TRUE, 'FC Barcelona', '2020-06-28', 0.5, 2.0, 1.8, 200, 1.98, 21, 'Argentina', 'Minnesota Timberwolves', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630195.png');
+  values ('Leandro Bolmaro', '2000-09-11', TRUE, 'FC Barcelona', 2020, 0.5, 2.0, 1.8, 200, 1.98, 21, 'Argentina', 'Minnesota Timberwolves', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630195.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Aleksej Pokusevski', '2001-12-26', TRUE, 'Olympiacos', '2020-06-28', 1.3, 4.0, 4.6, 190, 2.13, 19, 'Serbia', 'Oklahoma City Thunder', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630197.png');
+  values ('Aleksej Pokusevski', '2001-12-26', TRUE, 'Olympiacos', 2020, 1.3, 4.0, 4.6, 190, 2.13, 19, 'Serbia', 'Oklahoma City Thunder', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630197.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
   values ('Luguentz Dort', '1999-04-19', TRUE, 'Arizona State University', null, 2.0, 4.0, 16.8, 215, 1.91, 22, 'Canada', 'Oklahoma City Thunder', 'https://cdn.nba.com/headshots/nba/latest/260x190/1629652.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Dario Saric', '1994-04-08', TRUE, 'Anadolu Efes', '2014-06-28', 1.3, 3.8, 8.7, 225, 2.08, 27, 'Croatia', 'Phoenix Suns', 'https://cdn.nba.com/headshots/nba/latest/260x190/203967.png');
+  values ('Dario Saric', '1994-04-08', TRUE, 'Anadolu Efes', 2014, 2.0, 5.9, 11.7, 225, 2.08, 27, 'Croatia', 'Phoenix Suns', 'https://cdn.nba.com/headshots/nba/latest/260x190/203967.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Devin Booker', '1996-10-30', TRUE, 'Kentucky University', '2015-06-28', 4.5, 4.9, 23.2, 206, 1.96, 25, 'USA', 'Phoenix Suns', 'https://cdn.nba.com/headshots/nba/latest/260x190/1626164.png');
+  values ('Devin Booker', '1996-10-30', TRUE, 'Kentucky University', 2015, 4.6, 3.8, 23.0, 206, 1.96, 25, 'USA', 'Phoenix Suns', 'https://cdn.nba.com/headshots/nba/latest/260x190/1626164.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Jakob Poeltl', '1995-10-15', TRUE, 'The University of Utah', '2016-06-28', 2.0, 9.3, 12.6, 245, 2.16, 26, 'Austria', 'San Antonio Spurs', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627751.png');
+  values ('Jakob Poeltl', '1995-10-15', TRUE, 'The University of Utah', 2016, 1.2, 5.6, 6.3, 245, 2.16, 26, 'Austria', 'San Antonio Spurs', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627751.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Derrick White', '1994-07-02', TRUE, 'Colorado University', '2017-06-28', 5.2, 3.6, 12.1, 190, 1.93, 27, 'USA', 'San Antonio Spurs', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628401.png');
+  values ('Derrick White', '1994-07-02', TRUE, 'Colorado University', 2017, 3.6, 3.2, 11.0, 190, 1.93, 27, 'USA', 'San Antonio Spurs', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628401.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Daniel Theis', '1992-04-04', TRUE, 'Brose Bamberg', null, 0.8, 4.9, 8.1, 245, 2.06, 29, 'Germany', 'Houston Rockets', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628464.png');
+  values ('Daniel Theis', '1992-04-04', TRUE, 'Brose Bamberg', null, 1.3, 4.9, 7.5, 245, 2.06, 29, 'Germany', 'Houston Rockets', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628464.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('John Wall', '1990-09-06', TRUE, 'Kentucky University', '2010-06-28', 6.9, 3.2, 20.6, 210, 1.91, 31, 'USA', 'Houston Rockets', 'https://cdn.nba.com/headshots/nba/latest/260x190/202322.png');
+  values ('John Wall', '1990-09-06', TRUE, 'Kentucky University', 2010, 9.1, 4.3, 19.1, 210, 1.91, 31, 'USA', 'Houston Rockets', 'https://cdn.nba.com/headshots/nba/latest/260x190/202322.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Pascal Siakam', '1994-04-02', TRUE, 'New Mexico State', '2016-06-28', 3.8, 7.2, 18.1, 230, 2.03, 27, 'Cameroon', 'Toronto Raptors', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627783.png');
+  values ('Pascal Siakam', '1994-04-02', TRUE, 'New Mexico State', 2016, 2.7, 5.9, 14.5, 230, 2.03, 27, 'Cameroon', 'Toronto Raptors', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627783.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('OG Anunoby', '1997-07-17', TRUE, 'Indiana University', '2017-06-28', 2.7, 5.4, 20.1, 232, 2.01, 24, 'United Kingdom', 'Toronto Raptors', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628384.png');
+  values ('OG Anunoby', '1997-07-17', TRUE, 'Indiana University', 2017, 2.5, 5.8, 19.1, 232, 2.01, 24, 'United Kingdom', 'Toronto Raptors', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628384.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Isaiah Stewart', '2001-05-22', TRUE, 'Washington', '2020-06-28', 1.1, 8.0, 7.7, 250, 2.03, 20, 'USA', 'Detroit Pistons', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630191.png');
+  values ('Isaiah Stewart', '2001-05-22', TRUE, 'Washington', 2020, 1.1, 8.0, 7.7, 250, 2.03, 20, 'USA', 'Detroit Pistons', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630191.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Killian Hayes', '2001-07-27', TRUE, 'Ratiopharm Ulm', '2020-06-28', 3.6, 3.8, 6.2, 195, 1.96, 20, 'France', 'Detroit Pistons', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630165.png');
+  values ('Killian Hayes', '2001-07-27', TRUE, 'Ratiopharm Ulm', 2020, 3.6, 3.8, 6.2, 195, 1.96, 20, 'France', 'Detroit Pistons', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630165.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Zion Williamson', '2000-07-06', TRUE, 'Duke University', '2019-06-28', 3.7, 7.2, 27.0, 284, 1.98, 21, 'USA', 'New Orleans Pelicans', 'https://cdn.nba.com/headshots/nba/latest/260x190/1629627.png');
+  values ('Zion Williamson', '2000-07-06', TRUE, 'Duke University', 2019, 3.7, 7.2, 27.0, 284, 1.98, 21, 'USA', 'New Orleans Pelicans', 'https://cdn.nba.com/headshots/nba/latest/260x190/1629627.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Tomas Satoransky', '1991-10-30', TRUE, 'FC Barcelona', '2012-06-28', 2.2, 2.1, 2.8, 210, 2.01, 30, 'Czech Republic', 'New Orleans Pelicans', 'https://cdn.nba.com/headshots/nba/latest/260x190/203107.png');
+  values ('Tomas Satoransky', '1991-10-30', TRUE, 'FC Barcelona', 2012, 4.1, 2.9, 7.2, 210, 2.01, 30, 'Czech Republic', 'New Orleans Pelicans', 'https://cdn.nba.com/headshots/nba/latest/260x190/203107.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Domantas Sabonis', '1996-05-03', TRUE, 'Gonzaga', '2016-06-28', 4.0, 12.1, 17.4, 240, 2.11, 25, 'Lithuania', 'Indiana Pacers', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627734.png');
+  values ('Domantas Sabonis', '1996-05-03', TRUE, 'Gonzaga', 2016, 3.4, 8.9, 13.8, 240, 2.11, 25, 'Lithuania', 'Indiana Pacers', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627734.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Myles Turner', '1996-03-24', TRUE, 'Texas-Austin', '2015-06-28', 1.0, 7.5, 12.9, 250, 2.11, 25, 'USA', 'Indiana Pacers', 'https://cdn.nba.com/headshots/nba/latest/260x190/1626167.png');
+  values ('Myles Turner', '1996-03-24', TRUE, 'Texas-Austin', 2015, 1.2, 6.7, 12.7, 250, 2.11, 25, 'USA', 'Indiana Pacers', 'https://cdn.nba.com/headshots/nba/latest/260x190/1626167.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Nikola Jokic', '1995-02-19', TRUE, 'Mega Basket', '2014-06-28', 6.4, 13.6, 26.1, 284, 2.11, 26, 'Serbia', 'Denver Nuggets', 'https://cdn.nba.com/headshots/nba/latest/260x190/203999.png');
+  values ('Nikola Jokic', '1995-02-19', TRUE, 'Mega Basket', 2014, 6.4, 13.6, 26.1, 284, 2.11, 26, 'Serbia', 'Denver Nuggets', 'https://cdn.nba.com/headshots/nba/latest/260x190/203999.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Jamal Murray', '1997-02-23', TRUE, 'Kentucky University', '2016-06-28', 4.8, 4.0, 21.2, 215, 1.91, 24, 'Canada', 'Denver Nuggets', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627750.png');
+  values ('Jamal Murray', '1997-02-23', TRUE, 'Kentucky University', 2016, 4.8, 4.0, 21.2, 215, 1.91, 24, 'Canada', 'Denver Nuggets', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627750.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Kyrie Irving', '1992-03-23', TRUE, 'Duke University', '2011-06-28', 6.0, 4.8, 26.9, 195, 1.88, 29, 'Australia', 'Brooklyn Nets', 'https://cdn.nba.com/headshots/nba/latest/260x190/202681.png');
+  values ('Kyrie Irving', '1992-03-23', TRUE, 'Duke University', 2011, 5.7, 3.8, 22.8, 195, 1.88, 29, 'Australia', 'Brooklyn Nets', 'https://cdn.nba.com/headshots/nba/latest/260x190/202681.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Blake Griffin', '1989-03-16', TRUE, 'Oklahoma University', '2009-06-28', 2.0, 4.9, 5.5, 250, 2.06, 32, 'USA', 'Brooklyn Nets', 'https://cdn.nba.com/headshots/nba/latest/260x190/201933.png');
+  values ('Blake Griffin', '1989-03-16', TRUE, 'Oklahoma University', 2009, 4.3, 8.5, 20.6, 250, 2.06, 32, 'USA', 'Brooklyn Nets', 'https://cdn.nba.com/headshots/nba/latest/260x190/201933.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Luka Doncic', '1999-02-28', TRUE, 'Real Madrid', '2018-06-28', 8.5, 8.1, 25.4, 230, 2.01, 22, 'Slovenia', 'Dallas Mavericks', 'https://cdn.nba.com/headshots/nba/latest/260x190/1629029.png');
+  values ('Luka Doncic', '1999-02-28', TRUE, 'Real Madrid', 2018, 8.5, 8.1, 25.4, 230, 2.01, 22, 'Slovenia', 'Dallas Mavericks', 'https://cdn.nba.com/headshots/nba/latest/260x190/1629029.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, t_name, img) 
-  values ('Kristaps Porzingis', '1995-08-02', TRUE, 'Cajasol Sevilla', '2015-06-28', 1.9, 8.0, 19.7, 240, 2.21, 26, 'Latvia', 'Dallas Mavericks', 'https://cdn.nba.com/headshots/nba/latest/260x190/204001.png');
+  values ('Kristaps Porzingis', '1995-08-02', TRUE, 'Cajasol Sevilla', 2015, 1.9, 8.0, 19.7, 240, 2.21, 26, 'Latvia', 'Dallas Mavericks', 'https://cdn.nba.com/headshots/nba/latest/260x190/204001.png');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
-  values ('Kevin Durant', '1988-09-29', TRUE, 'The University of Texas at Austin', '2007-06-28', 5.0, 10.0, 29.8, 240, 2.08, 33, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201142.png','Brooklyn Nets');
+  values ('Kevin Durant', '1988-09-29', TRUE, 'The University of Texas at Austin', 2007, 4.2, 7.1, 27.1, 240, 2.08, 33, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201142.png','Brooklyn Nets');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
-  values ('LeBron James', '1984-12-30', TRUE, 'St. Vincent-St. Mary High School', '2003-06-26', 5.3, 6.3, 26.0, 250, 2.06, 36, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/2544.png', 'Los Angeles Lakers');
+  values ('LeBron James', '1984-12-30', TRUE, 'St. Vincent-St. Mary High School', 2003, 7.4, 7.4, 27.0, 250, 2.06, 36, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/2544.png', 'Los Angeles Lakers');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
-  values ('Georges Niang', '1993-06-17', TRUE, 'Iowa State', '2016-06-28', 1.7, 2.7, 11.3, 230, 2.01, 28, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627777.png', 'Philadelphia 76ers');
+  values ('Georges Niang', '1993-06-17', TRUE, 'Iowa State', 2016, 1.7, 2.7, 11.3, 230, 2.01, 28, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627777.png', 'Philadelphia 76ers');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
-  values ('Tyrese Maxey', '2000-04-11', TRUE, 'Kentucky', '2020-06-28', 4.9, 3.8, 17.2, 200, 1.88, 21, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630178.png', 'Philadelphia 76ers');
+  values ('Tyrese Maxey', '2000-04-11', TRUE, 'Kentucky', 2020, 4.9, 3.8, 17.2, 200, 1.88, 21, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630178.png', 'Philadelphia 76ers');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
-  values ('Giannis Antetokounmpo', '1994-12-06', TRUE, 'Filathlitikos', '2013-06-28', 6.0, 11.8, 27.6, 242, 2.11, 26, 'Greece', 'https://cdn.nba.com/headshots/nba/latest/260x190/203507.png', 'Milwaukee Bucks');
+  values ('Giannis Antetokounmpo', '1994-12-06', TRUE, 'Filathlitikos', 2013, 4.5, 9.2, 21.1, 242, 2.11, 26, 'Greece', 'https://cdn.nba.com/headshots/nba/latest/260x190/203507.png', 'Milwaukee Bucks');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
-  values ('Jrue Holiday', '1990-06-12', TRUE, 'UCLA', '2009-06-28', 6.1, 4.7, 15.3, 205, 1.91, 31, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201950.png', 'Milwaukee Bucks');
+  values ('Jrue Holiday', '1990-06-12', TRUE, 'UCLA', 2009, 6.4, 4.0, 16.0, 205, 1.91, 31, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201950.png', 'Milwaukee Bucks');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
-  values ('DeMar DeRozan', '1989-08-07', TRUE, 'Southern California', '2009-06-28', 4.1, 5.3, 26.4, 220, 1.98, 32, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201942.png', 'Chicago Bulls');
+  values ('DeMar DeRozan', '1989-08-07', TRUE, 'Southern California', 2009, 3.8, 4.4, 20.3, 220, 1.98, 32, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201942.png', 'Chicago Bulls');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
-  values ('Zach LaVine', '1995-03-10', TRUE, 'UCLA', '2014-06-28', 3.9, 5.4, 25.6, 200, 1.96, 26, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/203897.png', 'Chicago Bulls');
+  values ('Zach LaVine', '1995-03-10', TRUE, 'UCLA', 2014, 3.9, 5.4, 25.6, 200, 1.96, 26, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/203897.png', 'Chicago Bulls');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
-  values ('Ricky Rubio', '1990-10-21', TRUE, 'FC Barcelona', '2009-06-28', 6.3, 4.0, 13.5, 190, 1.88, 31, 'Spain', 'https://cdn.nba.com/headshots/nba/latest/260x190/201937.png', 'Cleveland Cavaliers');
+  values ('Ricky Rubio', '1990-10-21', TRUE, 'FC Barcelona', 2009, 7.6, 4.1, 11.1, 190, 1.88, 31, 'Spain', 'https://cdn.nba.com/headshots/nba/latest/260x190/201937.png', 'Cleveland Cavaliers');
 insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
-  values ('Darius Garland', '2000-01-26', TRUE, 'Vanderbilt', '2019-06-28', 7.3, 2.9, 19.1, 192, 1.85, 21, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1629636.png', 'Cleveland Cavaliers');
+  values ('Darius Garland', '2000-01-26', TRUE, 'Vanderbilt', 2019, 7.3, 2.9, 19.1, 192, 1.85, 21, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1629636.png', 'Cleveland Cavaliers');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Jayson Tatum', '1998-03-03', TRUE, 'Duke', 2017, 3.7, 8.8, 25.2, 210, 2.03, 23, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628369.png', 'Boston Celtics');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Al Horford', '1986-06-03', TRUE, 'Florida', 2007, 3.3, 8.2, 13.9, 240, 2.06, 35, 'Dominican Republic', 'https://cdn.nba.com/headshots/nba/latest/260x190/201143.png', 'Boston Celtics');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Paul George', '1990-05-02', TRUE, 'Fresno State', 2010, 3.6, 6.4, 20.4, 220, 2.03, 31, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/202331.png', 'Los Angeles Clippers');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Ivica Zubac', '1997-03-18', TRUE, 'Mega Basket', 2016, 1.2, 8.2, 10.3, 240, 2.13, 24, 'Croatia', 'https://cdn.nba.com/headshots/nba/latest/260x190/1627826.png', 'Los Angeles Clippers');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Ja Morant', '1999-08-10', TRUE, 'Murray State', 2019, 6.8, 5.6, 24.1, 174, 1.91, 22, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1629630.png', 'Memphis Grizzlies');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Steven Adams', '1993-07-20', TRUE, 'Pittsburgh', 2013, 1.3, 7.7, 9.5, 265, 2.11, 28, 'New Zealand', 'https://cdn.nba.com/headshots/nba/latest/260x190/203500.png', 'Memphis Grizzlies');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Trae Young', '1998-09-19', TRUE, 'Oklahoma', 2018, 8.9, 3.9, 24.3, 164, 1.85, 23, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1629027.png', 'Atlanta Hawks');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('John Collins', '1997-09-23', TRUE, 'Wake Forest', 2017, 2.2, 7.9, 17.1, 226, 2.06, 24, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628381.png', 'Atlanta Hawks');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Jimmy Butler', '1989-09-14', TRUE, 'Marquette', 2011, 4.0, 5.3, 17.5, 230, 2.01, 32, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/202710.png', 'Miami Heat');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Bam Adebayo', '1997-07-18', TRUE, 'Kentucky', 2017, 3.2, 10.2, 18.7, 255, 20.6, 24, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628389.png', 'Miami Heat');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Miles Bridges', '1998-03-21', TRUE, 'Michigan State', 2018, 3.2, 7.3, 20.4, 225, 2.01, 23, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628970.png', 'Charlotte Hornets');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('LaMelo Ball', '2001-08-22', TRUE, 'Illawarra', 2020, 8.3, 7.7, 20.0, 180, 2.01, 20, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630163.png', 'Charlotte Hornets');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Donovan Mitchell', '1996-09-07', TRUE, 'Louisville', 2017, 5.1, 4.1, 24.2, 215, 1.85, 25, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628378.png', 'Utah Jazz');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Bojan Bogdanovic', '1989-04-18', TRUE, 'Fenerbahce', 2011, 1.6, 3.6, 14.7, 226, 2.01, 32, 'Croatia', 'https://cdn.nba.com/headshots/nba/latest/260x190/202711.png', 'Utah Jazz');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Richaun Holmes', '1993-10-15', TRUE, 'Bowling Green', 2015, 1.1, 5.8, 9.8, 235, 2.08, 28, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1626158.png', 'Sacramento Kings');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('DeAaron Fox', '1997-12-20', TRUE, 'Kentucky', 2017, 5.5, 3.7, 20.1, 185, 1.91, 23, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1628368.png', 'Sacramento Kings');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Julius Randle', '1994-11-29', TRUE, 'Kentucky', 2014, 5.3, 10.0, 20.1, 150, 2.03, 27, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/203944.png', 'New York Knicks');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Alec Burks', '1991-07-20', TRUE, 'Colorado', 2011, 1.9, 3.4, 10.5, 214, 1.98, 30, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/202692.png', 'New York Knicks');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Cole Anthony', '2000-05-15', TRUE, 'North Carolina', 2020, 6.0, 6.6, 20.2, 185, 1.91, 21, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630175.png', 'Orlando Magic');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Jalen Suggs', '2001-06-03', TRUE, 'Gonzaga', 2021, 3.6, 3.4, 12.3, 205, 1.96, 20, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/1630591.png', 'Orlando Magic');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Carmelo Anthony', '1984-05-29', TRUE, 'Syracuse', 2003, 2.8, 6.3, 22.8, 238, 2.01, 37, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/2546.png', 'Los Angeles Lakers');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Anthony Davis', '1993-03-11', TRUE, 'Kentucky', 2012, 2.3, 10.2, 23.9, 253, 2.08, 28, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/203076.png', 'Los Angeles Lakers');
+insert into NBA_Players (name, dob, status, college, draft, APG, RPG, PPG, weight, height, age, nationality, img, t_name) 
+  values ('Russell Westbrook', '1988-11-12', TRUE, 'UCLA', 2008, 8.5, 7.4, 23.1, 200, 1.91, 33, 'USA', 'https://cdn.nba.com/headshots/nba/latest/260x190/201566.png', 'Los Angeles Lakers');
 
 
 insert into Date (date) values ('2021-06-10');
@@ -418,6 +466,118 @@ insert into Period (from_date, to_date, player_name, player_dob, t_name, number,
   values (2021, 2022, 'Ricky Rubio', '1990-10-21', 'Cleveland Cavaliers', 3, 4000, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
   values (2019, 2022, 'Darius Garland', '2000-01-26', 'Cleveland Cavaliers', 3, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2019, 'Jayson Tatum', '1998-03-03', 'Boston Celtics', 0, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2021, 'Jayson Tatum', '1998-03-03', 'Boston Celtics', 0, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Jayson Tatum', '1998-03-03', 'Boston Celtics', 0, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2007, 2016, 'Al Horford', '1986-06-03', 'Atlanta Hawks', 15, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2019, 'Al Horford', '1986-06-03', 'Boston Celtics', 42, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2020, 'Al Horford', '1986-06-03', 'Philadelphia 76ers', 42, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2021, 'Al Horford', '1986-06-03', 'Oklahoma City Thunder', 15, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Al Horford', '1986-06-03', 'Boston Celtics', 15, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2010, 2017, 'Paul George', '1990-05-02', 'Indiana Pacers', 24, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2019, 'Paul George', '1990-05-02', 'Oklahoma City Thunder', 13, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Paul George', '1990-05-02', 'Los Angeles Clippers', 13, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2019, 'Ivica Zubac', '1997-03-18', 'Los Angeles Lakers', 40, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Ivica Zubac', '1997-03-18', 'Los Angeles Clippers', 40, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Ja Morant', '1999-08-10', 'Memphis Grizzlies', 12, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2013, 2020, 'Steven Adams', '1993-07-20', 'Oklahoma City Thunder', 12, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2021, 'Steven Adams', '1993-07-20', 'New Orleans Pelicans', 12, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Steven Adams', '1993-07-20', 'Memphis Grizzlies', 4, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2022, 'Trae Young', '1998-09-19', 'Atlanta Hawks', 11, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2022, 'John Collins', '1997-09-23', 'Atlanta Hawks', 20, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2011, 2017, 'Jimmy Butler', '1989-09-14', 'Chicago Bulls', 21, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2019, 'Jimmy Butler', '1989-09-14', 'Minnesota Timberwolves', 23, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2019, 'Jimmy Butler', '1989-09-14', 'Philadelphia 76ers', 23, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Jimmy Butler', '1989-09-14', 'Miami Heat', 22, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2022, 'Bam Adebayo', '1997-07-18', 'Miami Heat', 13, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2022, 'Miles Bridges', '1998-03-21', 'Charlotte Hornets', 0, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'LaMelo Ball', '2001-08-22', 'Charlotte Hornets', 2, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2022, 'Donovan Mitchell', '1996-09-07', 'Utah Jazz', 45, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2014, 2017, 'Bojan Bogdanovic', '1989-04-18', 'Brooklyn Nets', 44, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2017, 'Bojan Bogdanovic', '1989-04-18', 'Washington Wizards', 44, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2019, 'Bojan Bogdanovic', '1989-04-18', 'Indiana Pacers', 44, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Bojan Bogdanovic', '1989-04-18', 'Utah Jazz', 44, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2015, 2018, 'Richaun Holmes', '1993-10-15', 'Philadelphia 76ers', 22, 4000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2019, 'Richaun Holmes', '1993-10-15', 'Phoenix Suns', 21, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Richaun Holmes', '1993-10-15', 'Sacramento Kings', 22, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2022, 'DeAaron Fox', '1997-12-20', 'Sacramento Kings', 5, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2014, 2018, 'Julius Randle', '1994-11-29', 'Los Angeles Lakers', 30, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2019, 'Julius Randle', '1994-11-29', 'New Orleans Pelicans', 30, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Julius Randle', '1994-11-29', 'New York Knicks', 30, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2011, 2019, 'Alec Burks', '1991-07-20', 'Utah Jazz', 10, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2020, 'Alec Burks', '1991-07-20', 'Philadelphia 76ers', 20, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'Alec Burks', '1991-07-20', 'New York Knicks', 18, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'Cole Anthony', '2000-05-15', 'Orlando Magic', 50, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Cole Anthony', '2000-05-15', 'Orlando Magic', 4, 4000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2003, 2011, 'Carmelo Anthony', '1984-05-29', 'Denver Nuggets', 15, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2010, 2017, 'Carmelo Anthony', '1984-05-29', 'New York Knicks', 7, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2018, 'Carmelo Anthony', '1984-05-29', 'Oklahoma City Thunder', 7, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2019, 'Carmelo Anthony', '1984-05-29', 'Houston Rockets', 7, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2021, 'Carmelo Anthony', '1984-05-29', 'Portland Trail Blazers', 0, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Carmelo Anthony', '1984-05-29', 'Los Angeles Lakers', 7, 4000, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2012, 2013, 'Anthony Davis', '1993-03-11', 'Charlotte Hornets', 23, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2013, 2019, 'Anthony Davis', '1993-03-11', 'New Orleans Pelicans', 23, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Anthony Davis', '1993-03-11', 'Los Angeles Lakers', 3, 4000, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2008, 2019, 'Russell Westbrook', '1988-11-12', 'Oklahoma City Thunder', 0, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2020, 'Russell Westbrook', '1988-11-12', 'Houston Rockets', 0, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2021, 'Russell Westbrook', '1988-11-12', 'Washington Wizards', 4, 4000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Russell Westbrook', '1988-11-12', 'Los Angeles Lakers', 0, 4000, 'PG');
 
 insert into Play_at (player_name, player_dob, position_name) values ('LeBron James', '1984-12-30', 'SF');
 insert into Play_at (player_name, player_dob, position_name) values ('Kevin Durant', '1988-09-29', 'PF');
@@ -430,6 +590,29 @@ insert into Play_at (player_name, player_dob, position_name) values ('DeMar DeRo
 insert into Play_at (player_name, player_dob, position_name) values ('Zach LaVine', '1995-03-10', 'SG');
 insert into Play_at (player_name, player_dob, position_name) values ('Ricky Rubio', '1990-10-21', 'PG');
 insert into Play_at (player_name, player_dob, position_name) values ('Darius Garland', '2000-01-26', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Jayson Tatum', '1998-03-03', 'SF');
+insert into Play_at (player_name, player_dob, position_name) values ('Al Horford', '1986-06-03', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('Paul George', '1990-05-02', 'SF');
+insert into Play_at (player_name, player_dob, position_name) values ('Ivica Zubac', '1997-03-18', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('Ja Morant', '1999-08-10', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Steven Adams', '1993-07-20', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('Trae Young', '1998-09-19', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('John Collins', '1997-09-23', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Jimmy Butler', '1989-09-14', 'SF');
+insert into Play_at (player_name, player_dob, position_name) values ('Bam Adebayo', '1997-07-18', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('Miles Bridges', '1998-03-21', 'SF');
+insert into Play_at (player_name, player_dob, position_name) values ('LaMelo Ball', '2001-08-22', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Donovan Mitchell', '1996-09-07', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Bojan Bogdanovic', '1989-04-18', 'SF');
+insert into Play_at (player_name, player_dob, position_name) values ('Richaun Holmes', '1993-10-15', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('DeAaron Fox', '1997-12-20', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Julius Randle', '1994-11-29', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Alec Burks', '1991-07-20', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Cole Anthony', '2000-05-15', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Jalen Suggs', '2001-06-03', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Carmelo Anthony', '1984-05-29', 'SF');
+insert into Play_at (player_name, player_dob, position_name) values ('Anthony Davis', '1993-03-11', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Russell Westbrook', '1988-11-12', 'PG');
 
 insert into Awards (name, date, t_name, p_name, p_dob) 
   values ('2019-2020 NBA Championship', '2020-10-11', 'Los Angeles Lakers', 'LeBron James', '1984-12-30');
