@@ -53,18 +53,20 @@ def render_player_page(name, dob, img, logo, pos):
     sql_injuries = f"SELECT name, date FROM injuries WHERE player_name = '{name}' AND player_dob = '{dob}';"
     sql_celebrities = f"SELECT name, age, sex, speciality, date FROM celebrities WHERE player_name = '{name}' AND player_dob = '{dob}';"
     sql_history = f"SELECT from_date, to_date, t_name AS team, logo, number, position, salary FROM period p, teams t WHERE player_name = '{name}' AND player_dob = '{dob}' AND t_name = name ORDER BY 1;"
+    sql_awards = f"SELECT name, date FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}';"
     player_info = query_db(sql_player_info)
     crimes = query_db(sql_crimes)
     injuries = query_db(sql_injuries)
     celebrities = query_db(sql_celebrities)
     history = query_db(sql_history)
+    awards = query_db(sql_awards)
     history['period'] = history['from_date'].astype(str) + "-" + history['to_date'].astype(str)
 
     st.image(logo)
     st.image(img)
     st.write("# {}, {}".format(name, pos))
     st.markdown(f"""
-        ## Info
+        ## :memo: Info
         * Height: {player_info['height'].values[0]}
         * Weight: {player_info['weight'].values[0]}
         * Birthday: {player_info['dob'].values[0]}
@@ -74,7 +76,7 @@ def render_player_page(name, dob, img, logo, pos):
         * College: {player_info['college'].values[0]}
         """)
 
-    st.write("## Career Stats")
+    st.write("## :chart_with_upwards_trend: Career Stats")
 
     position_c = st.selectbox("{} career state compares to:".format(name), ["All Positions"]+query_db("SELECT abbr FROM position ORDER BY 1")["abbr"].tolist())
     if position_c == "All Positions":
@@ -98,20 +100,40 @@ def render_player_page(name, dob, img, logo, pos):
     c = alt.Chart(apg_p).mark_circle(size=150).encode(y=alt.Y('stat', axis=alt.Axis(labels=False, title='')), x=alt.X('percentile', scale=alt.Scale(domain=[0, 100])), tooltip=['percentile'])
     col3.altair_chart(c, use_container_width=True)
 
-    st.write("## History")
+    st.write("## :book: History")
     history_table = "\n| YEAR | TEAM | NO. | POSITION | SALARY |\n| :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |\n"
     for i in range(len(history)):
         history_table += "| {} | ![]({}) {} | {} | {} | ${} |\n".format(history['period'].values[i], history['logo'].values[i], history['team'].values[i], history['number'].values[i], history['position'].values[i], history['salary'].values[i])
     st.markdown(history_table)
+    st.write(" ")
     position_s = st.selectbox("{} salary compare To:".format(name), ["All Positions"]+query_db("SELECT abbr FROM position")["abbr"].tolist())
+    if position_s == "All Positions":
+        sql_salary = f"SELECT * FROM (SELECT player_name, total, avg, PERCENT_RANK() OVER (ORDER BY total) AS total_p, PERCENT_RANK() OVER (ORDER BY avg) AS avg_p FROM (SELECT player_name, SUM(salary) as total, ROUND(SUM(salary)/(MAX(to_date)-MIN(from_date))) as avg FROM period GROUP BY player_name) AS tmp1) AS tmp2 where player_name ='{name}';"
+    else:
+        sql_salary = f"SELECT * FROM (SELECT player_name, total, avg, PERCENT_RANK() OVER (ORDER BY total) AS total_p, PERCENT_RANK() OVER (ORDER BY avg) AS avg_p FROM (SELECT p.player_name, SUM(salary) as total, ROUND(SUM(salary)/(MAX(to_date)-MIN(from_date))) as avg FROM period p, play_at pa WHERE p.player_name = pa.player_name AND (position_name = '{position_s}' OR pa.player_name = '{name}')GROUP BY p.player_name) AS tmp1) AS tmp2 where player_name ='{name}';"
     
-    st.write("## Injuries")
+    col1, col2, col3= st.columns([1,3,15])
+    salary = query_db(sql_salary)
+    col2.metric(label="Total salary", value=int(salary['total'].values[0]))
+    col2.metric(label="Average salary", value=int(salary['avg'].values[0]))
+
+    total_p = pd.DataFrame({'stat': ['TOTAL'],'percentile':[int(salary['total_p'].values[0]*100)]})
+    avg_p = pd.DataFrame({'stat': ['AVG'],'percentile':[int(salary['avg_p'].values[0]*100)]})
+    c = alt.Chart(total_p).mark_circle(size=150).encode(y=alt.Y('stat', axis=alt.Axis(labels=False, title='')), x=alt.X('percentile', scale=alt.Scale(domain=[0, 100])), tooltip=['percentile'])
+    col3.altair_chart(c, use_container_width=True)
+    c = alt.Chart(avg_p).mark_circle(size=150).encode(y=alt.Y('stat', axis=alt.Axis(labels=False, title='')), x=alt.X('percentile', scale=alt.Scale(domain=[0, 100])), tooltip=['percentile'])
+    col3.altair_chart(c, use_container_width=True)
+
+    st.write("## :trophy: Awards")
+    st.dataframe(awards)
+
+    st.write("## :collision: Injuries")
     st.dataframe(injuries)
     
-    st.write("## Gossips")
+    st.write("## :smiling_imp: Gossips")
     st.dataframe(celebrities)
     
-    st.write("## Crimes")
+    st.write("## :cop: Crimes")
     st.write(crimes)
 
 def matches():

@@ -403,181 +403,268 @@ insert into Position (name, abbr) values ('Center', 'C');
 
 
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2003, 2010, 'LeBron James', '1984-12-30', 'Cleveland Cavaliers', 23, 5000, 'SF');
+  values (2003, 2010, 'LeBron James', '1984-12-30', 'Cleveland Cavaliers', 23, 62020283, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2010, 2012, 'LeBron James', '1984-12-30', 'Miami Heat', 6, 5000, 'SF');
+  values (2010, 2012, 'LeBron James', '1984-12-30', 'Miami Heat', 6, 27396159, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2012, 2014, 'LeBron James', '1984-12-30', 'Miami Heat', 6, 5000, 'PF');
+  values (2012, 2014, 'LeBron James', '1984-12-30', 'Miami Heat', 6, 36612500, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2014, 2018, 'LeBron James', '1984-12-30', 'Cleveland Cavaliers', 23, 5000, 'SF');
+  values (2014, 2018, 'LeBron James', '1984-12-30', 'Cleveland Cavaliers', 23, 107864059, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2018, 2022, 'LeBron James', '1984-12-30', 'Los Angeles Lakers', 23, 5000, 'SF');
+  values (2018, 2022, 'LeBron James', '1984-12-30', 'Los Angeles Lakers', 23, 153491118, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2008, 2016, 'Kevin Durant', '1988-09-29', 'Oklahoma City Thunder', 35, 4000, 'SF');
+  values (2008, 2016, 'Kevin Durant', '1988-09-29', 'Oklahoma City Thunder', 35, 101472033, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2016, 2019, 'Kevin Durant', '1988-09-29', 'Golden State Warriors', 35, 4000, 'SF');
+  values (2016, 2019, 'Kevin Durant', '1988-09-29', 'Golden State Warriors', 35, 81540100, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2020, 2022, 'Kevin Durant', '1988-09-29', 'Brooklyn Nets', 7, 4000, 'SF');
+  values (2020, 2022, 'Kevin Durant', '1988-09-29', 'Brooklyn Nets', 7, 115839413, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2016, 2017, 'Georges Niang', '1993-06-17', 'Indiana Pacers', 32, 4000, 'PF');
+  values (2016, 2017, 'Georges Niang', '1993-06-17', 'Indiana Pacers', 32, 750000, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2021, 'Georges Niang', '1993-06-17', 'Utah Jazz', 31, 4000, 'PF');
+  values (2017, 2021, 'Georges Niang', '1993-06-17', 'Utah Jazz', 31, 4870084, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2021, 2022, 'Georges Niang', '1993-06-17', 'Philadelphia 76ers', 20, 4000, 'PF');
+  values (2021, 2022, 'Georges Niang', '1993-06-17', 'Philadelphia 76ers', 20, 3300000, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2020, 2022, 'Tyrese Maxey', '2000-04-11', 'Philadelphia 76ers', 0, 4000, 'SG');
+  values (2020, 2022, 'Tyrese Maxey', '2000-04-11', 'Philadelphia 76ers', 0, 5081760, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2012, 2022, 'Bradley Beal', '1993-06-28', 'Washington Wizards', 3, 4000, 'SG');
+  values (2012, 2022, 'Bradley Beal', '1993-06-28', 'Washington Wizards', 3, 177854712, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2013, 2017, 'Giannis Antetokounmpo', '1994-12-06', 'Milwaukee Bucks', 34, 4000, 'SF');
+  values (2013, 2022, 'Giannis Antetokounmpo', '1994-12-06', 'Milwaukee Bucks', 34, 146344870, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2022, 'Giannis Antetokounmpo', '1994-12-06', 'Milwaukee Bucks', 34, 4000, 'SF');
+  values (2009, 2013, 'Jrue Holiday', '1990-06-12', 'Philadelphia 76ers', 11, 7218068, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2009, 2013, 'Jrue Holiday', '1990-06-12', 'Philadelphia 76ers', 11, 4000, 'PG');
+  values (2013, 2017, 'Jrue Holiday', '1990-06-12', 'New Orleans Pelicans', 11, 41499804, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2013, 2017, 'Jrue Holiday', '1990-06-12', 'New Orleans Pelicans', 11, 4000, 'PG');
+  values (2017, 2020, 'Jrue Holiday', '1990-06-12', 'New Orleans Pelicans', 11, 77894089, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2020, 'Jrue Holiday', '1990-06-12', 'New Orleans Pelicans', 11, 4000, 'SG');
+  values (2020, 2021, 'Jrue Holiday', '1990-06-12', 'Milwaukee Bucks', 11, 27026111, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2020, 2021, 'Jrue Holiday', '1990-06-12', 'Milwaukee Bucks', 11, 4000, 'SG');
+  values (2021, 2022, 'Jrue Holiday', '1990-06-12', 'Milwaukee Bucks', 11, 32431333, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2021, 2022, 'Jrue Holiday', '1990-06-12', 'Milwaukee Bucks', 11, 4000, 'PG');
+  values (2009, 2018, 'DeMar DeRozan', '1989-08-07', 'Toronto Raptors', 10, 92973650, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2009, 2018, 'DeMar DeRozan', '1989-08-07', 'Toronto Raptors', 10, 4000, 'SG');
+  values (2018, 2021, 'DeMar DeRozan', '1989-08-07', 'San Antonio Spurs', 10, 81486177, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2018, 2021, 'DeMar DeRozan', '1989-08-07', 'San Antonio Spurs', 10, 4000, 'SF');
+  values (2021, 2022, 'DeMar DeRozan', '1989-08-07', 'Chicago Bulls', 11, 26000000, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2021, 2022, 'DeMar DeRozan', '1989-08-07', 'Chicago Bulls', 11, 4000, 'SG');
+  values (2014, 2015, 'Zach LaVine', '1995-03-10', 'Minnesota Timberwolves', 8, 2055840, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2014, 2015, 'Zach LaVine', '1995-03-10', 'Minnesota Timberwolves', 8, 4000, 'PG');
+  values (2015, 2017, 'Zach LaVine', '1995-03-10', 'Minnesota Timberwolves', 8, 4400000, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2015, 2017, 'Zach LaVine', '1995-03-10', 'Minnesota Timberwolves', 8, 4000, 'SG');
+  values (2017, 2022, 'Zach LaVine', '1995-03-10', 'Chicago Bulls', 8, 79983468, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2022, 'Zach LaVine', '1995-03-10', 'Chicago Bulls', 8, 4000, 'SG');
+  values (2011, 2017, 'Ricky Rubio', '1990-10-21', 'Minnesota Timberwolves', 9, 40766408, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2011, 2017, 'Ricky Rubio', '1990-10-21', 'Minnesota Timberwolves', 9, 4000, 'PG');
+  values (2017, 2019, 'Ricky Rubio', '1990-10-21', 'Utah Jazz', 3, 28900000, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2019, 'Ricky Rubio', '1990-10-21', 'Utah Jazz', 3, 4000, 'PG');
+  values (2019, 2020, 'Ricky Rubio', '1990-10-21', 'Phoenix Suns', 11, 15187500, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2020, 'Ricky Rubio', '1990-10-21', 'Phoenix Suns', 11, 4000, 'PG');
+  values (2020, 2021, 'Ricky Rubio', '1990-10-21', 'Minnesota Timberwolves', 9, 17000000, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2020, 2021, 'Ricky Rubio', '1990-10-21', 'Minnesota Timberwolves', 9, 4000, 'PG');
+  values (2021, 2022, 'Ricky Rubio', '1990-10-21', 'Cleveland Cavaliers', 3, 17800000, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2021, 2022, 'Ricky Rubio', '1990-10-21', 'Cleveland Cavaliers', 3, 4000, 'PG');
+  values (2019, 2022, 'Darius Garland', '2000-01-26', 'Cleveland Cavaliers', 3, 20162520, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2022, 'Darius Garland', '2000-01-26', 'Cleveland Cavaliers', 3, 4000, 'PG');
+  values (2017, 2022, 'Jayson Tatum', '1998-03-03', 'Boston Celtics', 0, 57867445, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2019, 'Jayson Tatum', '1998-03-03', 'Boston Celtics', 0, 4000, 'SF');
+  values (2007, 2016, 'Al Horford', '1986-06-03', 'Atlanta Hawks', 15, 75183554, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2021, 'Jayson Tatum', '1998-03-03', 'Boston Celtics', 0, 4000, 'PF');
+  values (2016, 2019, 'Al Horford', '1986-06-03', 'Boston Celtics', 42, 83203214, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2021, 2022, 'Jayson Tatum', '1998-03-03', 'Boston Celtics', 0, 4000, 'SF');
+  values (2019, 2020, 'Al Horford', '1986-06-03', 'Philadelphia 76ers', 42, 26250000, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2007, 2016, 'Al Horford', '1986-06-03', 'Atlanta Hawks', 15, 4000, 'C');
+  values (2020, 2021, 'Al Horford', '1986-06-03', 'Oklahoma City Thunder', 15, 27500000, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2016, 2019, 'Al Horford', '1986-06-03', 'Boston Celtics', 42, 4000, 'C');
+  values (2021, 2022, 'Al Horford', '1986-06-03', 'Boston Celtics', 15, 27000000, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2020, 'Al Horford', '1986-06-03', 'Philadelphia 76ers', 42, 4000, 'PF');
+  values (2010, 2017, 'Paul George', '1990-05-02', 'Indiana Pacers', 24, 61391831, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2020, 2021, 'Al Horford', '1986-06-03', 'Oklahoma City Thunder', 15, 4000, 'C');
+  values (2017, 2019, 'Paul George', '1990-05-02', 'Oklahoma City Thunder', 13, 50069658, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2021, 2022, 'Al Horford', '1986-06-03', 'Boston Celtics', 15, 4000, 'C');
+  values (2019, 2022, 'Paul George', '1990-05-02', 'Los Angeles Clippers', 13, 105738021, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2010, 2017, 'Paul George', '1990-05-02', 'Indiana Pacers', 24, 4000, 'SF');
+  values (2016, 2019, 'Ivica Zubac', '1997-03-18', 'Los Angeles Lakers', 40, 3342620, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2019, 'Paul George', '1990-05-02', 'Oklahoma City Thunder', 13, 4000, 'SF');
+  values (2019, 2022, 'Ivica Zubac', '1997-03-18', 'Los Angeles Clippers', 40, 21144805, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2022, 'Paul George', '1990-05-02', 'Los Angeles Clippers', 13, 4000, 'SF');
+  values (2019, 2022, 'Ja Morant', '1999-08-10', 'Memphis Grizzlies', 12, 27500400, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2016, 2019, 'Ivica Zubac', '1997-03-18', 'Los Angeles Lakers', 40, 4000, 'C');
+  values (2013, 2020, 'Steven Adams', '1993-07-20', 'Oklahoma City Thunder', 12, 80552138, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2022, 'Ivica Zubac', '1997-03-18', 'Los Angeles Clippers', 40, 4000, 'C');
+  values (2020, 2021, 'Steven Adams', '1993-07-20', 'New Orleans Pelicans', 12, 27528088, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2022, 'Ja Morant', '1999-08-10', 'Memphis Grizzlies', 12, 4000, 'PG');
+  values (2021, 2022, 'Steven Adams', '1993-07-20', 'Memphis Grizzlies', 4, 17073171, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2013, 2020, 'Steven Adams', '1993-07-20', 'Oklahoma City Thunder', 12, 4000, 'C');
+  values (2018, 2022, 'Trae Young', '1998-09-19', 'Atlanta Hawks', 11, 26135649, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2020, 2021, 'Steven Adams', '1993-07-20', 'New Orleans Pelicans', 12, 4000, 'C');
+  values (2017, 2022, 'John Collins', '1997-09-23', 'Atlanta Hawks', 20, 33891952, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2021, 2022, 'Steven Adams', '1993-07-20', 'Memphis Grizzlies', 4, 4000, 'C');
+  values (2011, 2017, 'Jimmy Butler', '1989-09-14', 'Chicago Bulls', 21, 43082461, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2018, 2022, 'Trae Young', '1998-09-19', 'Atlanta Hawks', 11, 4000, 'PG');
+  values (2017, 2019, 'Jimmy Butler', '1989-09-14', 'Minnesota Timberwolves', 23, 20186978, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2022, 'John Collins', '1997-09-23', 'Atlanta Hawks', 20, 4000, 'PF');
+  values (2018, 2019, 'Jimmy Butler', '1989-09-14', 'Philadelphia 76ers', 23, 16051567, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2011, 2017, 'Jimmy Butler', '1989-09-14', 'Chicago Bulls', 21, 4000, 'SF');
+  values (2019, 2022, 'Jimmy Butler', '1989-09-14', 'Miami Heat', 22, 101090925, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2019, 'Jimmy Butler', '1989-09-14', 'Minnesota Timberwolves', 23, 4000, 'SF');
+  values (2017, 2022, 'Bam Adebayo', '1997-07-18', 'Miami Heat', 13, 41903392, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2018, 2019, 'Jimmy Butler', '1989-09-14', 'Philadelphia 76ers', 23, 4000, 'SF');
+  values (2018, 2022, 'Miles Bridges', '1998-03-21', 'Charlotte Hornets', 0, 16083141, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2022, 'Jimmy Butler', '1989-09-14', 'Miami Heat', 22, 4000, 'SF');
+  values (2020, 2022, 'LaMelo Ball', '2001-08-22', 'Charlotte Hornets', 2, 16071720, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2022, 'Bam Adebayo', '1997-07-18', 'Miami Heat', 13, 4000, 'C');
+  values (2017, 2022, 'Donovan Mitchell', '1996-09-07', 'Utah Jazz', 45, 42440286, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2018, 2022, 'Miles Bridges', '1998-03-21', 'Charlotte Hornets', 0, 4000, 'SF');
+  values (2014, 2017, 'Bojan Bogdanovic', '1989-04-18', 'Brooklyn Nets', 44, 9383275, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2020, 2022, 'LaMelo Ball', '2001-08-22', 'Charlotte Hornets', 2, 4000, 'PG');
+  values (2016, 2017, 'Bojan Bogdanovic', '1989-04-18', 'Washington Wizards', 44, 1208521, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2022, 'Donovan Mitchell', '1996-09-07', 'Utah Jazz', 45, 4000, 'SG');
+  values (2017, 2019, 'Bojan Bogdanovic', '1989-04-18', 'Indiana Pacers', 44, 21000000, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2014, 2017, 'Bojan Bogdanovic', '1989-04-18', 'Brooklyn Nets', 44, 4000, 'SF');
+  values (2019, 2022, 'Bojan Bogdanovic', '1989-04-18', 'Utah Jazz', 44, 52487500, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2016, 2017, 'Bojan Bogdanovic', '1989-04-18', 'Washington Wizards', 44, 4000, 'SG');
+  values (2015, 2018, 'Richaun Holmes', '1993-10-15', 'Philadelphia 76ers', 22, 3571382, 'C');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2019, 'Bojan Bogdanovic', '1989-04-18', 'Indiana Pacers', 44, 4000, 'SF');
+  values (2018, 2019, 'Richaun Holmes', '1993-10-15', 'Phoenix Suns', 21, 1600520, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2022, 'Bojan Bogdanovic', '1989-04-18', 'Utah Jazz', 44, 4000, 'SF');
+  values (2019, 2022, 'Richaun Holmes', '1993-10-15', 'Sacramento Kings', 22, 19858913, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2015, 2018, 'Richaun Holmes', '1993-10-15', 'Philadelphia 76ers', 22, 4000, 'C');
+  values (2017, 2022, 'DeAaron Fox', '1997-12-20', 'Sacramento Kings', 5, 52276460, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2018, 2019, 'Richaun Holmes', '1993-10-15', 'Phoenix Suns', 21, 4000, 'PF');
+  values (2014, 2018, 'Julius Randle', '1994-11-29', 'Los Angeles Lakers', 30, 13545962, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2022, 'Richaun Holmes', '1993-10-15', 'Sacramento Kings', 22, 4000, 'PF');
+  values (2018, 2019, 'Julius Randle', '1994-11-29', 'New Orleans Pelicans', 30, 8641000, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2022, 'DeAaron Fox', '1997-12-20', 'Sacramento Kings', 5, 4000, 'PG');
+  values (2019, 2022, 'Julius Randle', '1994-11-29', 'New York Knicks', 30, 55575000, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2014, 2018, 'Julius Randle', '1994-11-29', 'Los Angeles Lakers', 30, 4000, 'PF');
+  values (2011, 2019, 'Alec Burks', '1991-07-20', 'Utah Jazz', 10, 42178938, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2018, 2019, 'Julius Randle', '1994-11-29', 'New Orleans Pelicans', 30, 4000, 'PF');
+  values (2019, 2020, 'Alec Burks', '1991-07-20', 'Philadelphia 76ers', 20, 10000000, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2022, 'Julius Randle', '1994-11-29', 'New York Knicks', 30, 4000, 'PF');
+  values (2020, 2022, 'Alec Burks', '1991-07-20', 'New York Knicks', 18, 15536000, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2011, 2019, 'Alec Burks', '1991-07-20', 'Utah Jazz', 10, 4000, 'SG');
+  values (2020, 2022, 'Cole Anthony', '2000-05-15', 'Orlando Magic', 50, 6734520, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2020, 'Alec Burks', '1991-07-20', 'Philadelphia 76ers', 20, 4000, 'SG');
+  values (2021, 2022, 'Jalen Suggs', '2001-06-03', 'Orlando Magic', 4, 6593040, 'SG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2020, 2022, 'Alec Burks', '1991-07-20', 'New York Knicks', 18, 4000, 'SG');
+  values (2003, 2011, 'Carmelo Anthony', '1984-05-29', 'Denver Nuggets', 15, 75489227, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2020, 2022, 'Cole Anthony', '2000-05-15', 'Orlando Magic', 50, 4000, 'PG');
+  values (2010, 2017, 'Carmelo Anthony', '1984-05-29', 'New York Knicks', 7, 125631432, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2021, 2022, 'Cole Anthony', '2000-05-15', 'Orlando Magic', 4, 4000, 'SG');
+  values (2017, 2018, 'Carmelo Anthony', '1984-05-29', 'Oklahoma City Thunder', 7, 26243760, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2003, 2011, 'Carmelo Anthony', '1984-05-29', 'Denver Nuggets', 15, 4000, 'SF');
+  values (2018, 2019, 'Carmelo Anthony', '1984-05-29', 'Houston Rockets', 7, 1338954, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2010, 2017, 'Carmelo Anthony', '1984-05-29', 'New York Knicks', 7, 4000, 'SF');
+  values (2019, 2021, 'Carmelo Anthony', '1984-05-29', 'Portland Trail Blazers', 0, 4588843, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2017, 2018, 'Carmelo Anthony', '1984-05-29', 'Oklahoma City Thunder', 7, 4000, 'PF');
+  values (2021, 2022, 'Carmelo Anthony', '1984-05-29', 'Los Angeles Lakers', 7, 2641691, 'SF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2018, 2019, 'Carmelo Anthony', '1984-05-29', 'Houston Rockets', 7, 4000, 'SF');
+  values (2012, 2013, 'Anthony Davis', '1993-03-11', 'Charlotte Hornets', 23, 5144280, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2021, 'Carmelo Anthony', '1984-05-29', 'Portland Trail Blazers', 0, 4000, 'PF');
+  values (2013, 2019, 'Anthony Davis', '1993-03-11', 'New Orleans Pelicans', 23, 89380249, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2021, 2022, 'Carmelo Anthony', '1984-05-29', 'Los Angeles Lakers', 7, 4000, 'SF');
+  values (2019, 2022, 'Anthony Davis', '1993-03-11', 'Los Angeles Lakers', 3, 93503065, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2012, 2013, 'Anthony Davis', '1993-03-11', 'Charlotte Hornets', 23, 4000, 'PF');
+  values (2008, 2019, 'Russell Westbrook', '1988-11-12', 'Oklahoma City Thunder', 0, 166908558, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2013, 2019, 'Anthony Davis', '1993-03-11', 'New Orleans Pelicans', 23, 4000, 'PF');
+  values (2019, 2020, 'Russell Westbrook', '1988-11-12', 'Houston Rockets', 0, 37303152, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2022, 'Anthony Davis', '1993-03-11', 'Los Angeles Lakers', 3, 4000, 'PF');
+  values (2020, 2021, 'Russell Westbrook', '1988-11-12', 'Washington Wizards', 4, 40158814, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2008, 2019, 'Russell Westbrook', '1988-11-12', 'Oklahoma City Thunder', 0, 4000, 'PG');
+  values (2021, 2022, 'Russell Westbrook', '1988-11-12', 'Los Angeles Lakers', 0, 44211146, 'PG');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2019, 2020, 'Russell Westbrook', '1988-11-12', 'Houston Rockets', 0, 4000, 'PG');
+  values (2017, 2021, 'Kyle Kuzma', '1995-07-24', 'Los Angeles Lakers', 0, 8526766, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2020, 2021, 'Russell Westbrook', '1988-11-12', 'Washington Wizards', 4, 4000, 'PG');
+  values (2021, 2022, 'Kyle Kuzma', '1995-07-24', 'Washington Wizards', 33, 13000000, 'PF');
 insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
-  values (2021, 2022, 'Russell Westbrook', '1988-11-12', 'Los Angeles Lakers', 0, 4000, 'PG');
+  values (2009, 2022, 'Stephen Curry', '1988-03-14', 'Golden State Warriors', 30, 254736348, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2014, 2020, 'Andrew Wiggins', '1995-02-23', 'Minnesota Timberwolves', 22, 66944586, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Andrew Wiggins', '1995-02-23', 'Golden State Warriors', 22, 70279898, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2012, 2022, 'Damian Lillard', '1990-07-15', 'Portland Trail Blazers', 0, 191215866, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2014, 2017, 'Jusuf Nurkic', '1994-08-23', 'Denver Nuggets', 27, 4859189, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2022, 'Jusuf Nurkic', '1994-08-23', 'Portland Trail Blazers', 27, 54535991, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'Anthony Edwards', '2001-08-05', 'Minnesota Timberwolves', 1, 20002920, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Leandro Bolmaro', '2000-09-11', 'Minnesota Timberwolves', 9, 2353320, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'Aleksej Pokusevski', '2001-12-26', 'Oklahoma City Thunder', 17, 6078000, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Luguentz Dort', '1999-04-19', 'Oklahoma City Thunder', 5, 3456249, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2019, 'Dario Saric', '1994-04-08', 'Philadelphia 76ers', 9, 5097738, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2019, 'Dario Saric', '1994-04-08', 'Minnesota Timberwolves', 36, 2169942, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Dario Saric', '1994-04-08', 'Phoenix Suns', 20, 21024362, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2015, 2022, 'Devin Booker', '1996-10-30', 'Phoenix Suns', 1, 96683253, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2018, 'Jakob Poeltl', '1995-10-15', 'Toronto Raptors', 42, 5529600, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2022, 'Jakob Poeltl', '1995-10-15', 'San Antonio Spurs', 25, 23319378, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2022, 'Derrick White', '1994-07-02', 'San Antonio Spurs', 4, 23592940, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2021, 'Daniel Theis', '1992-04-04', 'Boston Celtics', 27, 10066289, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2021, 'Daniel Theis', '1992-04-04', 'Chicago Bulls', 27, 1815068, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Daniel Theis', '1992-04-04', 'Houston Rockets', 27, 8280351, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2010, 2019, 'John Wall', '1990-09-06', 'Washington Wizards', 2, 145959625, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'John Wall', '1990-09-06', 'Houston Rockets', 1, 83178323, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2022, 'Pascal Siakam', '1994-04-02', 'Toronto Raptors', 43, 69821587, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2022, 'OG Anunoby', '1997-07-17', 'Toronto Raptors', 3, 25680792, 'SF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'Isaiah Stewart', '2001-05-22', 'Detroit Pistons', 28, 6398160, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'Killian Hayes', '2001-07-27', 'Detroit Pistons', 7, 10879800, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Zion Williamson', '2000-07-06', 'New Orleans Pelicans', 1, 30126480, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2019, 'Tomas Satoransky', '1991-10-30', 'Washington Wizards', 31, 9000000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2021, 'Tomas Satoransky', '1991-10-30', 'Chicago Bulls', 31, 19375000, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2021, 2022, 'Tomas Satoransky', '1991-10-30', 'New Orleans Pelicans', 31, 10000000, 'SG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2017, 'Domantas Sabonis', '1996-05-03', 'Oklahoma City Thunder', 3, 2440200, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2022, 'Domantas Sabonis', '1996-05-03', 'Indiana Pacers', 11, 48118758, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2015, 2022, 'Myles Turner', '1996-03-24', 'Indiana Pacers', 33, 64176804, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2015, 2022, 'Nikola Jokic', '1995-02-19', 'Denver Nuggets', 15, 117435159, 'C');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2016, 2022, 'Jamal Murray', '1997-02-23', 'Denver Nuggets', 27, 70985709, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2011, 2017, 'Kyrie Irving', '1992-03-23', 'Cleveland Cavaliers', 2, 56239811, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2019, 'Kyrie Irving', '1992-03-23', 'Boston Celtics', 11, 38967813, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Kyrie Irving', '1992-03-23', 'Brooklyn Nets', 11, 98809675, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2010, 2018, 'Blake Griffin', '1989-03-16', 'Los Angeles Clippers', 32, 113712751, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2017, 2021, 'Blake Griffin', '1989-03-16', 'Detroit Pistons', 23, 138180711, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2020, 2022, 'Blake Griffin', '1989-03-16', 'Brooklyn Nets', 2, 3871367, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2018, 2022, 'Luka Doncic', '1999-02-28', 'Dallas Mavericks', 77, 31987541, 'PG');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2015, 2018, 'Kristaps Porzingis', '1995-08-02', 'New York Knicks', 6, 16397022, 'PF');
+insert into Period (from_date, to_date, player_name, player_dob, t_name, number, salary, position) 
+  values (2019, 2022, 'Kristaps Porzingis', '1995-08-02', 'Dallas Mavericks', 6, 88951160, 'PF');
+
 
 insert into Play_at (player_name, player_dob, position_name) values ('LeBron James', '1984-12-30', 'SF');
 insert into Play_at (player_name, player_dob, position_name) values ('Kevin Durant', '1988-09-29', 'PF');
@@ -613,6 +700,36 @@ insert into Play_at (player_name, player_dob, position_name) values ('Jalen Sugg
 insert into Play_at (player_name, player_dob, position_name) values ('Carmelo Anthony', '1984-05-29', 'SF');
 insert into Play_at (player_name, player_dob, position_name) values ('Anthony Davis', '1993-03-11', 'PF');
 insert into Play_at (player_name, player_dob, position_name) values ('Russell Westbrook', '1988-11-12', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Kyle Kuzma', '1995-07-24', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Stephen Curry', '1988-03-14', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Andrew Wiggins', '1995-02-23', 'SF');
+insert into Play_at (player_name, player_dob, position_name) values ('Damian Lillard', '1990-07-15', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Jusuf Nurkic', '1994-08-23', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('Anthony Edwards', '2001-08-05', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Leandro Bolmaro', '2000-09-11', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Aleksej Pokusevski', '2001-12-26', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('Luguentz Dort', '1999-04-19', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Dario Saric', '1994-04-08', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Devin Booker', '1996-10-30', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Jakob Poeltl', '1995-10-15', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('Derrick White', '1994-07-02', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Daniel Theis', '1992-04-04', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('John Wall', '1990-09-06', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Pascal Siakam', '1994-04-02', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('OG Anunoby', '1997-07-17', 'SF');
+insert into Play_at (player_name, player_dob, position_name) values ('Isaiah Stewart', '2001-05-22', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('Killian Hayes', '2001-07-27', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Zion Williamson', '2000-07-06', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Tomas Satoransky', '1991-10-30', 'SG');
+insert into Play_at (player_name, player_dob, position_name) values ('Domantas Sabonis', '1996-05-03', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Myles Turner', '1996-03-24', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('Nikola Jokic', '1995-02-19', 'C');
+insert into Play_at (player_name, player_dob, position_name) values ('Jamal Murray', '1997-02-23', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Kyrie Irving', '1992-03-23', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Blake Griffin', '1989-03-16', 'PF');
+insert into Play_at (player_name, player_dob, position_name) values ('Luka Doncic', '1999-02-28', 'PG');
+insert into Play_at (player_name, player_dob, position_name) values ('Kristaps Porzingis', '1995-08-02', 'PF');
+
 
 insert into Awards (name, date, t_name, p_name, p_dob) 
   values ('2019-2020 NBA Championship', '2020-10-11', 'Los Angeles Lakers', 'LeBron James', '1984-12-30');
