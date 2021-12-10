@@ -47,6 +47,14 @@ def query_db(sql: str):
 
     return df
 
+def human_format(num):
+    magnitude = 0
+    while abs(num) >= 1000:
+        magnitude += 1
+        num /= 1000.0
+    # add more suffixes if you need them
+    return '%.2f%s' % (num, ['', 'K', 'M', 'G', 'T', 'P'][magnitude])
+
 def render_player_page(name, dob, img, logo, pos):
     sql_player_info = f"SELECT * FROM nba_players WHERE name = '{name}' AND dob = '{dob}';"
     sql_crimes = f"SELECT name, date FROM crimes WHERE player_name = '{name}' AND player_dob = '{dob}';"
@@ -87,7 +95,7 @@ def render_player_page(name, dob, img, logo, pos):
 
     col1, col2, col3= st.columns([1,3,15])
     col2.metric(label="Points per game", value=player_info['ppg'].values[0])
-    col2.metric(label="Ribaund per game", value=player_info['rpg'].values[0])
+    col2.metric(label="Ribaunds per game", value=player_info['rpg'].values[0])
     col2.metric(label="Assists per game", value=player_info['apg'].values[0])
 
     ppg_p = pd.DataFrame({'stat': ['PPG'],'percentile':[int(career_stat['ppg_p'].values[0]*100)]})
@@ -114,8 +122,8 @@ def render_player_page(name, dob, img, logo, pos):
     
     col1, col2, col3= st.columns([1,3,15])
     salary = query_db(sql_salary)
-    col2.metric(label="Total salary", value=int(salary['total'].values[0]))
-    col2.metric(label="Average salary", value=int(salary['avg'].values[0]))
+    col2.metric(label="Total salary (USD)", value=human_format(int(salary['total'].values[0])))
+    col2.metric(label="Average salary (USD)", value=human_format(int(salary['avg'].values[0])))
 
     total_p = pd.DataFrame({'stat': ['TOTAL'],'percentile':[int(salary['total_p'].values[0]*100)]})
     avg_p = pd.DataFrame({'stat': ['AVG'],'percentile':[int(salary['avg_p'].values[0]*100)]})
@@ -193,14 +201,83 @@ def players():
         with my_expander:
             render_player_page(df.iloc[i,0], df.iloc[i,1], df.iloc[i,2], df.iloc[i,4], df.iloc[i,5])
             
-def news():
-    pass
+def leaderboard():
+    metric = st.sidebar.selectbox("Choose a metric:", [
+        "Total Salary",
+        "Average Salary",
+        "Points per Game",
+        "Ribaunds per Game",
+        "Assists per Game"
+        ], 0)
+    st.sidebar.write("Filters:")
+    sql_team_names = "SELECT name FROM teams ORDER BY 1;"
+    sql_positions = "SELECT abbr FROM position ORDER BY 1"
+    sql_countries = "SELECT name FROM countries ORDER BY 1"
+    team = st.sidebar.selectbox("Team", ["All Teams"]+query_db(sql_team_names)["name"].tolist())
+    position = st.sidebar.selectbox("Position", ["All Positions"]+query_db(sql_positions)["abbr"].tolist())
+    country = st.sidebar.selectbox("Country", ["All Countries"]+query_db(sql_countries)["name"].tolist())
+    conditions = []
+    if team != "All Teams":
+        conditions.append("p.t_name = '{}'".format(team))
+    if position != "All Positions":
+        conditions.append("pa.position_name = '{}'".format(position))
+    if country != "All Countries":
+        conditions.append("p.nationality = '{}'".format(country))
+    if conditions:
+        conditions = " AND " + " AND ".join(conditions)
+    else:
+        conditions = ""
+    col1, col2, col3, col4 = st.columns([1,2,10,10])
+    col1.write('## RANK')
+    col2.write('## .')
+    col3.write('## PLAYER')
+    col4.write("## "+metric)
+    if metric == "Total Salary":
+        sql_metric = f"SELECT p.name, p.img, SUM(pd.salary) FROM nba_players p, period pd, play_at pa WHERE p.name = pd.player_name AND p.dob = pd.player_dob AND p.name = pa.player_name AND p.dob = pa.player_dob {conditions} GROUP BY p.name, p.img ORDER BY 3 DESC;"
+        df = query_db(sql_metric)
+        for i in range(len(df)):
+            col1.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(i+1), unsafe_allow_html=True)
+            col2.image(df.iloc[i,1])
+            col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
+            col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(human_format(df.iloc[i,2])), unsafe_allow_html=True)
+    elif metric == "Average Salary":
+        sql_metric = f"SELECT p.name, p.img, ROUND(SUM(pd.salary)/(MAX(pd.to_date)-MIN(pd.from_date))) FROM nba_players p, period pd, play_at pa WHERE p.name = pd.player_name AND p.name = pa.player_name AND p.dob = pa.player_dob {conditions} GROUP BY p.name, p.img ORDER BY 3 DESC;"
+        df = query_db(sql_metric)
+        for i in range(len(df)):
+            col1.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(i+1), unsafe_allow_html=True)
+            col2.image(df.iloc[i,1])
+            col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
+            col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(human_format(df.iloc[i,2])), unsafe_allow_html=True)
+    elif metric == "Points per Game":
+        sql_metric = f"SELECT p.name, p.img, p.ppg FROM nba_players p, play_at pa WHERE p.name = pa.player_name AND p.dob = pa.player_dob {conditions} ORDER BY 3 DESC;"
+        df = query_db(sql_metric)
+        for i in range(len(df)):
+            col1.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(i+1), unsafe_allow_html=True)
+            col2.image(df.iloc[i,1])
+            col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
+            col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,2]), unsafe_allow_html=True)
+    elif metric == "Ribaunds per Game":
+        sql_metric = f"SELECT p.name, p.img, p.rpg FROM nba_players p, play_at pa WHERE p.name = pa.player_name AND p.dob = pa.player_dob {conditions} ORDER BY 3 DESC;"
+        df = query_db(sql_metric)
+        for i in range(len(df)):
+            col1.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(i+1), unsafe_allow_html=True)
+            col2.image(df.iloc[i,1])
+            col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
+            col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,2]), unsafe_allow_html=True)
+    elif metric == "Assists per Game":
+        sql_metric = f"SELECT p.name, p.img, p.apg FROM nba_players p, play_at pa WHERE p.name = pa.player_name AND p.dob = pa.player_dob {conditions} GROUP ORDER BY 3 DESC;"
+        df = query_db(sql_metric)
+        for i in range(len(df)):
+            col1.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(i+1), unsafe_allow_html=True)
+            col2.image(df.iloc[i,1])
+            col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
+            col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,2]), unsafe_allow_html=True)
 
 
 PAGES = OrderedDict([
     ("Matches", matches),
     ("Players", players),
-    ("News", news)
+    ("Leaderboard", leaderboard)
     ])
 
 def run():
