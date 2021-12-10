@@ -107,11 +107,12 @@ create table Play_at (
 
 
 create table Awards (
-  name varchar(32) primary key,
-  date date,
+  name varchar(64),
+  year integer,
   t_name varchar(64),
-  p_name varchar(32) not null,
-  p_dob date not null,
+  p_name varchar(32),
+  p_dob date,
+  primary key (name, year, p_name, p_dob),
   foreign key (t_name) references Teams(name),
   foreign key (p_name, p_dob) references NBA_Players(name, dob)
 );
@@ -731,18 +732,173 @@ insert into Play_at (player_name, player_dob, position_name) values ('Luka Donci
 insert into Play_at (player_name, player_dob, position_name) values ('Kristaps Porzingis', '1995-08-02', 'PF');
 
 
-insert into Awards (name, date, t_name, p_name, p_dob) 
-  values ('2019-2020 NBA Championship', '2020-10-11', 'Los Angeles Lakers', 'LeBron James', '1984-12-30');
-insert into Awards (name, date, t_name, p_name, p_dob) 
-  values ('2019-2020 NBA Final MVP', '2020-10-11', null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Championship', 2020, 'Los Angeles Lakers', 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Championship', 2016, 'Cleveland Cavaliers', 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Championship', 2013, 'Miami Heat', 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Championship', 2012, 'Miami Heat', 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Final MVP', 2020, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Final MVP', 2016, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Final MVP', 2013, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Final MVP', 2012, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA MVP', 2013, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA MVP', 2012, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA MVP', 2010, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA MVP', 2009, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Rookie of the Year', 2004, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA All-Rookie First Team', 2004, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('Olympic gold medalist', 2008, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('Olympic gold medalist', 2012, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('USA Basketball Male Athlete of the Year', 2012, null, 'LeBron James', '1984-12-30');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Rookie of the Year', 2011, null, 'Blake Griffin', '1989-03-16');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA All-Rookie First Team', 2011, null, 'Blake Griffin', '1989-03-16');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Slam Dunk Champion', 2011, null, 'Blake Griffin', '1989-03-16');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Championship', 2016, 'Cleveland Cavaliers', 'Kyrie Irving', '1992-03-23');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Rookie of the Year', 2012, null, 'Kyrie Irving', '1992-03-23');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA All-Rookie First Team', 2012, null, 'Kyrie Irving', '1992-03-23');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Three-Point Contest', 2013, null, 'Kyrie Irving', '1992-03-23');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Championship', 2018, 'Golden State Warriors', 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Championship', 2017, 'Golden State Warriors', 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Final MVP', 2018, null, 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Final MVP', 2017, null, 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Rookie of the Year', 2008, null, 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA All-Rookie First Team', 2008, null, 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA MVP', 2014, null, 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('Olympic gold medalist', 2012, null, 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('Olympic gold medalist', 2016, null, 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('Olympic gold medalist', 2020, null, 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('Olympic MVP', 2020, null, 'Kevin Durant', '1988-09-29');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Champion', 2021, 'Milwaukee Bucks', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Finals MVP', 2021, null, 'Giannis Antetokounmpo', '1994-12-06');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA MVP', 2019, null, 'Giannis Antetokounmpo', '1994-12-06');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA MVP', 2020, null, 'Giannis Antetokounmpo', '1994-12-06');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Defensive Player of the Year', 2020, null, 'Giannis Antetokounmpo', '1994-12-06');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('NBA Most Improved Player', 2017, null, 'Giannis Antetokounmpo', '1994-12-06');
+insert into Awards (name, year, t_name, p_name, p_dob) 
+  values ('Euroscar European Player of the Year', 2018, null, 'Giannis Antetokounmpo', '1994-12-06');
 
 
 insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
   values ('Scarlett Johansson', 36, 'F', 'Actress', '2011-01-16', 'Kevin Durant', '1988-09-29');
-
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Apryl Jones', 34, 'F', 'Actress', '2017-01-01', 'Kevin Durant', '1988-09-29');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Cassandra Anderson', 31, 'F', 'Realtor', '2018-09-16', 'Kevin Durant', '1988-09-29');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Brittney Elena', 32, 'F', 'Actress', '2017-08-11', 'Kevin Durant', '1988-09-29');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Jasmine Shine', 18, 'F', null, '2017-02-09', 'Kevin Durant', '1988-09-29');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Monica Wright', 33, 'F', 'American basketball coach', '2015-02-18', 'Kevin Durant', '1988-09-29');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Dai Frazier', 18, 'F', 'Model', '2018-11-16', 'Kevin Durant', '1988-09-29');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Carmen Ortega', 35, 'F', 'Model', '2013-08-20', 'LeBron James', '1984-12-30');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Savannah Brinson', 35, 'F', 'Wife', '2013-07-19', 'LeBron James', '1984-12-30');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Meagan Good', 40, 'F', 'Actress', '2004-11-16', 'LeBron James', '1984-12-30');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Adrienne Bailon', 38, 'F', 'TV Host', '2003-04-06', 'LeBron James', '1984-12-30');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Marlene Golden Wilkerson', 28, 'F', 'Blogger', '2003-04-06', 'Kyrie Irving', '1992-03-23');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Chantel Jeffries', 29, 'F', 'Model', '2018-06-21', 'Kyrie Irving', '1992-03-23');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Gabrielle Lexa', null, 'F', 'Actress', '2017-03-25', 'Kyrie Irving', '1992-03-23');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Kehlani Parrish', 26, 'F', 'Singer', '2016-04-06', 'Kyrie Irving', '1992-03-23');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Mariah Riddlesprigger', 29, 'F', 'Volleyball player', '2019-10-01', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Madison Beer', 22, 'F', 'Singer', '2018-10-01', 'Blake Griffin', '1989-03-16');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Brynn Cameron', 35, 'F', 'Actress', '2013-08-01', 'Blake Griffin', '1989-03-16');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Kendall Jenner', 26, 'F', 'Model', '2017-08-13', 'Blake Griffin', '1989-03-16');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Sabrina Maserati', null, 'F', null, '2011-01-01', 'Blake Griffin', '1989-03-16');
+insert into Celebrities (name, age, sex, speciality, date, player_name, player_dob) 
+  values ('Kate Upton', 29, 'F', 'Model', '2013-10-01', 'Blake Griffin', '1989-03-16');
 
 insert into Injuries (name, date, player_name, player_dob) values ('Right Ankle', '2021-10-25', 'LeBron James', '1984-12-30');
 insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-05-25', 'LeBron James', '1984-12-30');
 insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-05-16', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-05-02', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-05-01', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-03-20', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-03-19', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-03-17', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-03-11', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Rest', '2021-03-03', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Left Ankle', '2021-01-24', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-01-22', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Left Ankle', '2021-01-09', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Groin', '2021-10-09', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Right Groin', '2021-10-05', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Illness', '2021-01-11', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Elbow', '2019-12-14', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Knee', '2019-03-23', 'LeBron James', '1984-12-30');
+insert into Injuries (name, date, player_name, player_dob) values ('Rest', '2021-12-08', 'Kevin Durant', '1988-09-29');
+insert into Injuries (name, date, player_name, player_dob) values ('Shoulder', '2021-11-19', 'Kevin Durant', '1988-09-29');
+insert into Injuries (name, date, player_name, player_dob) values ('Injury Management', '2021-04-30', 'Kevin Durant', '1988-09-29');
 insert into Injuries (name, date, player_name, player_dob) values ('Thigh', '2021-04-18', 'Kevin Durant', '1988-09-29');
 insert into Injuries (name, date, player_name, player_dob) values ('Rest', '2021-04-14', 'Kevin Durant', '1988-09-29');
+insert into Injuries (name, date, player_name, player_dob) values ('Hamstring', '2021-02-14', 'Kevin Durant', '1988-09-29');
+insert into Injuries (name, date, player_name, player_dob) values ('Health And Safety Protocols', '2021-02-05', 'Kevin Durant', '1988-09-29');
+insert into Injuries (name, date, player_name, player_dob) values ('Injury Recovery-Rest', '2021-01-29', 'Kevin Durant', '1988-09-29');
+insert into Injuries (name, date, player_name, player_dob) values ('Achilles Injury Recovery', '2021-01-22', 'Kevin Durant', '1988-09-29');
+insert into Injuries (name, date, player_name, player_dob) values ('Health And Safety Protocols', '2021-01-09', 'Kevin Durant', '1988-09-29');
+insert into Injuries (name, date, player_name, player_dob) values ('Health And Safety Protocols', '2021-01-04', 'Kevin Durant', '1988-09-29');
+insert into Injuries (name, date, player_name, player_dob) values ('Calf', '2021-12-03', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Undisclosed', '2021-12-02', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Right Ankle', '2021-11-11', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Left Knee', '2021-11-01', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Knee', '2021-06-29', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Calf', '2021-06-28', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Calf', '2021-06-26', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Groin', '2021-05-28', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-04-29', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-04-28', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Knee', '2021-04-03', 'Giannis Antetokounmpo', '1994-12-06');
+insert into Injuries (name, date, player_name, player_dob) values ('Knee', '2021-03-27', 'Giannis Antetokounmpo', '1994-12-06');

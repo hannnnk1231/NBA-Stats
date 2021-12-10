@@ -57,17 +57,16 @@ def human_format(num):
 
 def render_player_page(name, dob, img, logo, pos):
     sql_player_info = f"SELECT * FROM nba_players WHERE name = '{name}' AND dob = '{dob}';"
-    sql_crimes = f"SELECT name, date FROM crimes WHERE player_name = '{name}' AND player_dob = '{dob}';"
-    sql_injuries = f"SELECT name, date FROM injuries WHERE player_name = '{name}' AND player_dob = '{dob}';"
-    sql_celebrities = f"SELECT name, age, sex, speciality, date FROM celebrities WHERE player_name = '{name}' AND player_dob = '{dob}';"
+    sql_crimes = f"SELECT name, date FROM crimes WHERE player_name = '{name}' AND player_dob = '{dob}' ORDER BY 2 DESC,1;"
+    sql_injuries = f"SELECT name, date FROM injuries WHERE player_name = '{name}' AND player_dob = '{dob}' ORDER BY 2 DESC,1;"
+    sql_celebrities = f"SELECT name, age, sex, speciality, date FROM celebrities WHERE player_name = '{name}' AND player_dob = '{dob}' ORDER BY date DESC, name;"
     sql_history = f"SELECT from_date, to_date, t_name AS team, logo, number, position, salary FROM period p, teams t WHERE player_name = '{name}' AND player_dob = '{dob}' AND t_name = name ORDER BY 1;"
-    sql_awards = f"SELECT name, date FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}';"
+
     player_info = query_db(sql_player_info)
     crimes = query_db(sql_crimes)
     injuries = query_db(sql_injuries)
     celebrities = query_db(sql_celebrities)
     history = query_db(sql_history)
-    awards = query_db(sql_awards)
     history['period'] = history['from_date'].astype(str) + "-" + history['to_date'].astype(str)
 
     st.image(logo)
@@ -133,7 +132,14 @@ def render_player_page(name, dob, img, logo, pos):
     col3.altair_chart(c, use_container_width=True)
 
     st.write("## :trophy: Awards")
-    st.dataframe(awards)
+    awards_min_max = query_db(f"SELECT MAX(year), MIN(year) FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}'")
+    year = st.slider("Award Year Range:", min_value = int(awards_min_max.iloc[0,1]), max_value = int(awards_min_max.iloc[0,0]), value = [int(awards_min_max.iloc[0,1]), int(awards_min_max.iloc[0,0])])
+    awards = query_db(f"SELECT name, year FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}' AND year BETWEEN {year[0]} AND {year[1]} ORDER BY year DESC, name;")
+    awards_cnt = query_db(f"SELECT name, COUNT(*) AS cnt FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}' AND year BETWEEN {year[0]} AND {year[1]} GROUP BY name ORDER BY name;")
+    col1, col2 = st.columns(2)
+    col1.dataframe(awards)
+    for i in range(len(awards_cnt)):
+        col2.metric(label=awards_cnt.iloc[i,0], value=int(awards_cnt.iloc[i,1]))
 
     st.write("## :collision: Injuries")
     st.dataframe(injuries)
