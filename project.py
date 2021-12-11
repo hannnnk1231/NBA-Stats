@@ -133,9 +133,13 @@ def render_player_page(name, dob, img, logo, pos):
 
     st.write("## :trophy: Awards")
     awards_min_max = query_db(f"SELECT MAX(year), MIN(year) FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}'")
-    year = st.slider("Award Year Range:", min_value = int(awards_min_max.iloc[0,1]), max_value = int(awards_min_max.iloc[0,0]), value = [int(awards_min_max.iloc[0,1]), int(awards_min_max.iloc[0,0])])
-    awards = query_db(f"SELECT name, year FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}' AND year BETWEEN {year[0]} AND {year[1]} ORDER BY year DESC, name;")
-    awards_cnt = query_db(f"SELECT name, COUNT(*) AS cnt FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}' AND year BETWEEN {year[0]} AND {year[1]} GROUP BY name ORDER BY name;")
+    if len(awards_min_max) > 1:
+        year = st.slider("Award Year Range:", min_value = int(awards_min_max.iloc[0,1]), max_value = int(awards_min_max.iloc[0,0]), value = [int(awards_min_max.iloc[0,1]), int(awards_min_max.iloc[0,0])])
+        awards = query_db(f"SELECT name, year FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}' AND year BETWEEN {year[0]} AND {year[1]} ORDER BY year DESC, name;")
+        awards_cnt = query_db(f"SELECT name, COUNT(*) AS cnt FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}' AND year BETWEEN {year[0]} AND {year[1]} GROUP BY name ORDER BY name;")
+    else:
+        awards = query_db(f"SELECT name, year FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}' ORDER BY year DESC, name;")
+        awards_cnt = query_db(f"SELECT name, COUNT(*) AS cnt FROM awards WHERE p_name = '{name}' AND p_dob = '{dob}' GROUP BY name ORDER BY name;")
     col1, col2 = st.columns(2)
     col1.dataframe(awards)
     for i in range(len(awards_cnt)):
