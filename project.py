@@ -159,15 +159,25 @@ def matches():
     sql_date = "SELECT date FROM Date ORDER BY date desc;"
     m_date = st.sidebar.selectbox("Date", ["All Dates"] + query_db(sql_date)["date"].tolist())
     team = st.sidebar.selectbox("Team", ["All Teams"] + query_db(sql_team)["name"].tolist())
-    sql_matches = "SELECT DISTINCT m.host, t1.abbr, m.score_host, m.m_date, m.score_guest, t2.abbr, m.guest, t1.logo, t2.logo, m.m_type, m.arena FROM Match m, Teams t1, Teams t2, NBA_Players p WHERE m.host = t1.name AND m.guest = t2.name"
+    playerName = st.sidebar.text_input("Player Name")
+    sql_matches = "SELECT m.host, t1.abbr, m.score_host, m.m_date, m.score_guest, t2.abbr, m.guest, t1.logo, t2.logo, m.m_type, m.arena FROM Match m, Teams t1, Teams t2 WHERE m.host = t1.name AND m.guest = t2.name"
     conditions = []
-    if m_date != "All Dates":
-        conditions.append("m.m_date = '{}'".format(m_date))
-    if team != "All Teams":
-        conditions.append("m.host = '{}'".format(team))
-    if conditions:
-        sql_matches += " AND " + " AND ".join(conditions)
-    sql_matches += " ORDER BY m.m_date DESC, m.host"
+    if playerName:
+        sql_matches = "SELECT m.host, t1.abbr, m.score_host, m.m_date, m.score_guest, t2.abbr, m.guest, t1.logo, t2.logo, m.m_type, m.arena FROM Match m, Teams t1, Teams t2 WHERE m.host = t1.name AND m.guest = t2.name AND (m.host in "
+        sql_players_team = "(SELECT p.t_name FROM NBA_Players p WHERE " + "p.name LIKE '%{}%')".format(playerName)
+        sql_matches = sql_matches + sql_players_team
+        sql_matches = sql_matches + "OR m.guest in "
+        sql_matches = sql_matches + sql_players_team + ")"
+        sql_matches += " ORDER BY m.m_date DESC, m.host"
+    else:
+        if m_date != "All Dates":
+            conditions.append("m.m_date = '{}'".format(m_date))
+        if team != "All Teams":
+            conditions.append("(m.host = '{}'".format(team) + "or m.guest = '{}')".format(team))
+        if conditions:
+            sql_matches += " AND " + " AND ".join(conditions)
+        sql_matches += " ORDER BY m.m_date DESC, m.host"
+    
     df = query_db(sql_matches)
     for i in range(len(df)):
         scorehost, scoreguest = df.iloc[i,2], df.iloc[i,4]
