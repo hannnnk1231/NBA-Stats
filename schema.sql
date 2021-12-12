@@ -374,6 +374,8 @@ insert into Date (date) values ('2021-06-10');
 insert into Date (date) values ('2021-10-03');
 insert into Date (date) values ('2021-10-19');
 insert into Date (date) values ('2022-01-25');
+insert into Date (date) values ('2021-12-10');
+insert into Date (date) values ('2021-12-11');
 
 insert into Match_type (name) values ('preseason');
 insert into Match_type (name) values ('regular season');
@@ -394,6 +396,42 @@ insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena)
 
 insert into Match (host, guest, m_date, m_type, arena) 
   values ('Brooklyn Nets', 'Los Angeles Lakers', '2022-01-25', 'regular season', 'Barclays Center');
+
+
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Charlotte Hornets', 'Sacramento Kings', '2021-12-10', 124, 123, 'regular season','Spectrum Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Indiana Pacers', 'Dallas Mavericks', '2021-12-10', 106, 93, 'regular season','Gainbridge Fieldhouse');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Toronto Raptors', 'New York Knicks', '2021-12-10', 90, 87, 'regular season','Scotiabank Arena');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Atlanta Hawks', 'Brooklyn Nets', '2021-12-10', 105, 113, 'regular season','State Farm Arena');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('New Orleans Pelicans', 'Detroit Pistons', '2021-12-10', 109, 93, 'regular season','Smoothie King Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Minnesota Timberwolves', 'Cleveland Cavaliers', '2021-12-10', 106, 123, 'regular season', 'Target Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Oklahoma City Thunder', 'Los Angeles Lakers', '2021-12-10', 95, 116, 'regular season','Paycom Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Houston Rockets', 'Milwaukee Bucks', '2021-12-10', 114, 123, 'regular season','Toyota Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Phoenix Suns', 'Boston Celtics', '2021-12-10', 111, 90, 'regular season','Footprint Center');
+
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Los Angeles Clippers', 'Orlando Magic', '2021-12-11', 106, 104, 'regular season','Staples Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Washington Wizards', 'Utah Jazz', '2021-12-11', 98, 123, 'regular season','Capital One Arena');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Miami Heat', 'Chicago Bulls', '2021-12-11', 118, 92, 'regular season', 'FTX Arena');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Memphis Grizzlies', 'Houston Rockets', '2021-12-11', 113, 106, 'regular season','FedExForum');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Cleveland Cavaliers', 'Sacramento Kings', '2021-12-11', 117, 103, 'regular season','Rocket Mortgage FieldHouse');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Philadelphia 76ers', 'Golden State Warriors', '2021-12-11', 102, 93, 'regular season', 'Wells Fargo Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('San Antonio Spurs', 'Denver Nuggets', '2021-12-11', 112, 127, 'regular season','AT&T Center');
+
 
 
 insert into Position (name, abbr) values ('Small forward', 'SF');
