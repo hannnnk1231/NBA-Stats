@@ -6,6 +6,7 @@ from configparser import ConfigParser
 import pandas as pd
 import numpy as np
 import altair as alt
+from time import gmtime, strftime
 
 st.set_page_config(layout="wide")
 
@@ -157,9 +158,20 @@ def render_player_page(name, dob, img, logo, pos):
 def matches():
     sql_team = "SELECT name FROM Teams ORDER BY name;"
     sql_date = "SELECT date FROM Date ORDER BY date desc;"
-    m_date = st.sidebar.selectbox("Date", ["All Dates"] + query_db(sql_date)["date"].tolist())
+    sql_arena = "SELECT name FROM Arenas ORDER BY name;"
+    sql_match_type = "SELECT name FROM Match_type ORDER BY name;"
+    sql_countries = "SELECT name FROM Countries ORDER BY name"
+    tmp_date = []
+    tmp_date.append("All Dates")
+    m_date = st.sidebar.multiselect("Date", ["All Dates"] + query_db(sql_date)["date"].tolist(), default = tmp_date)
     team = st.sidebar.selectbox("Team", ["All Teams"] + query_db(sql_team)["name"].tolist())
-    playerName = st.sidebar.text_input("Player Name")
+    arena = st.sidebar.selectbox("Arenas", ["All Arenas"] + query_db(sql_arena)["name"].tolist())
+    match_type = st.sidebar.selectbox("Match type", ["All types"] + query_db(sql_match_type)["name"].tolist())
+    score = st.sidebar.number_input(label = "Match score", min_value = 0, max_value = 200, value = 0, step = 1)
+    st.sidebar.write("-------------------------")
+    country = st.sidebar.selectbox("Country (Independent)", ["All Countries"]+query_db(sql_countries)["name"].tolist())
+    st.sidebar.write("-------------------------")
+    playerName = st.sidebar.text_input("Player Name (Independent)")
     sql_matches = "SELECT m.host, t1.abbr, m.score_host, m.m_date, m.score_guest, t2.abbr, m.guest, t1.logo, t2.logo, m.m_type, m.arena FROM Match m, Teams t1, Teams t2 WHERE m.host = t1.name AND m.guest = t2.name"
     conditions = []
     if playerName:
@@ -169,29 +181,64 @@ def matches():
         sql_matches = sql_matches + "OR m.guest in "
         sql_matches = sql_matches + sql_players_team + ")"
         sql_matches += " ORDER BY m.m_date DESC, m.host"
+    elif country != "All Countries":
+        pass
     else:
-        if m_date != "All Dates":
-            conditions.append("m.m_date = '{}'".format(m_date))
+        tmp_date = []
+        tmp_date.append("All Dates")
+        if m_date != tmp_date and len(m_date) != 0:
+            if "All Dates" not in m_date:
+                if len(m_date) == 1:
+                    conditions.append("m.m_date = '{}'".format(m_date[0]))
+                else:
+                    strdate = "("
+                    for i in range(len(m_date)):
+                        if i < len(m_date) - 1:
+                            strdate += "m.m_date = '{}' or ".format(m_date[i])
+                        else:
+                            strdate += "m.m_date = '{}' )".format(m_date[i])
+                    conditions.append(strdate)
         if team != "All Teams":
             conditions.append("(m.host = '{}'".format(team) + "or m.guest = '{}')".format(team))
+        if arena != "All Arenas":
+            conditions.append("m.arena = '{}'".format(arena))
+        if match_type != "All types":
+            conditions.append("m.m_type = '{}'".format(match_type))
+        if score:
+            conditions.append("(m.score_host >= '{}'".format(score) + "or m.score_guest >= '{}')".format(score))
         if conditions:
             sql_matches += " AND " + " AND ".join(conditions)
         sql_matches += " ORDER BY m.m_date DESC, m.host"
-    
+
+    sql_statistics = "SELECT avg(m.score_host) avg_host,  avg(m.score_guest) avg_guest FROM Match m, Teams t1, Teams t2 WHERE " + sql_matches.split("WHERE", 1)[1].split("ORDER BY")[0] 
+    df_statistics = query_db(sql_statistics)
+    col1, col2, col3, col4, col5, col6 = st.columns([2, 6, 6, 4, 2, 4])
+
+    if (pd.isna(df_statistics.iloc[0,0]) == False):
+        col1.image("https://cdn.nba.com/next/75-teaser/player-list/logo.png")
+        col2.metric(f"Host Average Score", value = '{:.2f}'.format(df_statistics.iloc[0,0]))
+        col3.metric("date", value = strftime("%Y-%m-%d", gmtime()))
+        col4.metric(f"Guest Average Score", value = '{:.2f}'.format(df_statistics.iloc[0,1]))
+        col5.image("https://cdn.nba.com/next/75-teaser/player-list/logo.png")
+        my_expander = col6.expander("more", expanded = False)
+        with my_expander:
+            st.balloons()
+        st.write("-------------------------")
+
     df = query_db(sql_matches)
     for i in range(len(df)):
         scorehost, scoreguest = df.iloc[i,2], df.iloc[i,4]
         hostname, hostabbr, matchdate, guestname, guestabbr = df.iloc[i,0], df.iloc[i,1], df.iloc[i,3], df.iloc[i,6], df.iloc[i,5]
         col1, col2, col3, col4, col5, col6 = st.columns([2, 6, 6, 4, 2, 4])
         col1.image(df.iloc[i,-4])
-        col2.metric(f"{hostname}, {hostabbr}", '{:d}'.format(int((scorehost, 0)[pd.isna(scorehost)])))
+        col2.metric(f"{hostname}, {hostabbr}", value = '{:d}'.format(int((scorehost, 0)[pd.isna(scorehost)])), delta = int(0 if pd.isna(scorehost) or scorehost is None else (scorehost - scoreguest)))
         col3.metric("date", f"{matchdate}")
-        col4.metric(f"{guestname}, {guestabbr}", '{:d}'.format(int((scoreguest, 0)[pd.isna(scoreguest)])))
+        col4.metric(f"{guestname}, {guestabbr}", value = '{:d}'.format(int((scoreguest, 0)[pd.isna(scoreguest)])), delta = int(0 if pd.isna(scoreguest) or scoreguest is None else (scoreguest - scorehost)))
         col5.image(df.iloc[i,-3])
         my_expander = col6.expander("more", expanded = False)
         with my_expander:
             st.write(f"Arena: {df.iloc[i,-1]}")
-            st.write(f"A {df.iloc[i,-2]} game")
+            st.write(f"This is a {df.iloc[i,-2]} game")
 
 def players():
     sql_team_names = "SELECT name FROM teams ORDER BY 1;"
