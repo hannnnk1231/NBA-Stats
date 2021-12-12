@@ -160,16 +160,17 @@ def matches():
     sql_date = "SELECT date FROM Date ORDER BY date desc;"
     sql_arena = "SELECT name FROM Arenas ORDER BY name;"
     sql_match_type = "SELECT name FROM Match_type ORDER BY name;"
-    sql_countries = "SELECT name FROM Countries ORDER BY name"
+    sql_continents = "SELECT DISTINCT continent FROM Countries ORDER BY continent"
     tmp_date = []
     tmp_date.append("All Dates")
+    st.sidebar.write("-------------------------")
     m_date = st.sidebar.multiselect("Date", ["All Dates"] + query_db(sql_date)["date"].tolist(), default = tmp_date)
     team = st.sidebar.selectbox("Team", ["All Teams"] + query_db(sql_team)["name"].tolist())
     arena = st.sidebar.selectbox("Arenas", ["All Arenas"] + query_db(sql_arena)["name"].tolist())
     match_type = st.sidebar.selectbox("Match type", ["All types"] + query_db(sql_match_type)["name"].tolist())
     score = st.sidebar.number_input(label = "Match score", min_value = 0, max_value = 200, value = 0, step = 1)
     st.sidebar.write("-------------------------")
-    country = st.sidebar.selectbox("Country (Independent)", ["All Countries"]+query_db(sql_countries)["name"].tolist())
+    continent = st.sidebar.selectbox("Continent (Independent)", ["All Continents"]+query_db(sql_continents)["continent"].tolist())
     st.sidebar.write("-------------------------")
     playerName = st.sidebar.text_input("Player Name (Independent)")
     sql_matches = "SELECT m.host, t1.abbr, m.score_host, m.m_date, m.score_guest, t2.abbr, m.guest, t1.logo, t2.logo, m.m_type, m.arena FROM Match m, Teams t1, Teams t2 WHERE m.host = t1.name AND m.guest = t2.name"
@@ -181,8 +182,13 @@ def matches():
         sql_matches = sql_matches + "OR m.guest in "
         sql_matches = sql_matches + sql_players_team + ")"
         sql_matches += " ORDER BY m.m_date DESC, m.host"
-    elif country != "All Countries":
-        pass
+    elif continent != "All Continents":
+        sql_matches = "SELECT m.host, t1.abbr, m.score_host, m.m_date, m.score_guest, t2.abbr, m.guest, t1.logo, t2.logo, m.m_type, m.arena FROM Match m, Teams t1, Teams t2 WHERE m.host = t1.name AND m.guest = t2.name AND (m.host in "
+        sql_continent = "(SELECT DISTINCT p.t_name FROM NBA_Players p, Countries c WHERE p.nationality = c.name AND " + " c.continent = '{}')".format(continent)
+        sql_matches = sql_matches + sql_continent
+        sql_matches = sql_matches + "OR m.guest in "
+        sql_matches = sql_matches + sql_continent + ")"
+        sql_matches += " ORDER BY m.m_date DESC, m.host"
     else:
         tmp_date = []
         tmp_date.append("All Dates")
