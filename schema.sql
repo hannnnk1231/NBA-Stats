@@ -428,7 +428,7 @@ insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena)
 insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
   values ('Washington Wizards', 'Utah Jazz', '2021-12-11', 98, 123, 'regular season','Capital One Arena');
 insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
-  values ('Miami Heat', 'Chicago Bulls', '2021-12-11', 118, 92, 'regular season', 'FTX Arena');
+  values ('Miami Heat', 'Chicago Bulls', '2021-12-11', 118, 92, 'regular season', 'United Center');
 insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
   values ('Memphis Grizzlies', 'Houston Rockets', '2021-12-11', 113, 106, 'regular season','FedExForum');
 insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
