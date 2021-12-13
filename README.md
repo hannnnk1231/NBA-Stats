@@ -51,4 +51,4 @@ streamlit run project.py --server.address=localhost --server.port=8700
 
 ### News
 
-<img width="70%" alt="" src="img/news.png">
+![](img/news.gif)
