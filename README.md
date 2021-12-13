@@ -1,5 +1,7 @@
 # NBA-Stats
 
+<img width="30%" alt="" src="img/NBA.png">
+
 ## Usage
 1. Upload code and data to the jedi server
 ```
@@ -21,3 +23,24 @@ psql -h localhost -U mh6069 mh6069_db
 cd project
 streamlit run project.py --server.address=localhost --server.port=8700
 ```
+## Demo
+
+### Overview
+
+![](img/navi.gif)
+
+### Matches
+
+![](img/matches.gif)
+
+### Players
+
+![](img/players2.gif)
+
+### Leaderboard
+
+![](img/leaderboard.gif)
+
+### News
+
+<img width="70%" alt="" src="img/news.png">
