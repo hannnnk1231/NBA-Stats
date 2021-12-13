@@ -20,6 +20,7 @@ ssh mh6069@jedi.poly.edu -L 8700:localhost:8700
 cd project
 psql -h localhost -U mh6069 mh6069_db
 \i schema.sql
+\i load.sql
 ```
 
 4. Port forwarding and run the Streamlit app
