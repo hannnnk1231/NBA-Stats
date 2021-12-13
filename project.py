@@ -309,42 +309,42 @@ def leaderboard():
         sql_metric = f"SELECT p.name, p.img, SUM(pd.salary) FROM nba_players p, period pd, play_at pa WHERE p.name = pd.player_name AND p.dob = pd.player_dob AND p.name = pa.player_name AND p.dob = pa.player_dob {conditions} GROUP BY p.name, p.img ORDER BY 3 DESC;"
         df = query_db(sql_metric)
         for i in range(len(df)):
-            col1.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(i+1), unsafe_allow_html=True)
-            col2.image(df.iloc[i,1])
-            col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
-            col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(human_format(df.iloc[i,2])), unsafe_allow_html=True)
+            col1.markdown('<p style= "font-size: 32px;">{}</p>'.format(i+1), unsafe_allow_html=True)
+            col2.image(df.iloc[i,1], width=70)
+            col3.markdown('<p style= "font-size: 32px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
+            col4.markdown('<p style= "font-size: 32px;">{}</p>'.format(human_format(df.iloc[i,2])), unsafe_allow_html=True)
     elif metric == "Average Salary":
         sql_metric = f"SELECT p.name, p.img, ROUND(SUM(pd.salary)/(MAX(pd.to_date)-MIN(pd.from_date))) FROM nba_players p, period pd, play_at pa WHERE p.name = pd.player_name AND p.name = pa.player_name AND p.dob = pa.player_dob {conditions} GROUP BY p.name, p.img ORDER BY 3 DESC;"
         df = query_db(sql_metric)
         for i in range(len(df)):
-            col1.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(i+1), unsafe_allow_html=True)
-            col2.image(df.iloc[i,1])
-            col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
-            col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(human_format(df.iloc[i,2])), unsafe_allow_html=True)
+            col1.markdown('<p style= "font-size: 32px;">{}</p>'.format(i+1), unsafe_allow_html=True)
+            col2.image(df.iloc[i,1], width=70)
+            col3.markdown('<p style= "font-size: 32px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
+            col4.markdown('<p style= "font-size: 32px;">{}</p>'.format(human_format(df.iloc[i,2])), unsafe_allow_html=True)
     elif metric == "Points per Game":
         sql_metric = f"SELECT p.name, p.img, p.ppg FROM nba_players p, play_at pa WHERE p.name = pa.player_name AND p.dob = pa.player_dob {conditions} ORDER BY 3 DESC;"
         df = query_db(sql_metric)
         for i in range(len(df)):
-            col1.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(i+1), unsafe_allow_html=True)
-            col2.image(df.iloc[i,1])
-            col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
-            col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,2]), unsafe_allow_html=True)
+            col1.markdown('<p style= "font-size: 32px;">{}</p>'.format(i+1), unsafe_allow_html=True)
+            col2.image(df.iloc[i,1], width=70)
+            col3.markdown('<p style= "font-size: 32px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
+            col4.markdown('<p style= "font-size: 32px;">{}</p>'.format(df.iloc[i,2]), unsafe_allow_html=True)
     elif metric == "Ribaunds per Game":
         sql_metric = f"SELECT p.name, p.img, p.rpg FROM nba_players p, play_at pa WHERE p.name = pa.player_name AND p.dob = pa.player_dob {conditions} ORDER BY 3 DESC;"
         df = query_db(sql_metric)
         for i in range(len(df)):
-            col1.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(i+1), unsafe_allow_html=True)
-            col2.image(df.iloc[i,1])
-            col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
-            col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,2]), unsafe_allow_html=True)
+            col1.markdown('<p style= "font-size: 32px;">{}</p>'.format(i+1), unsafe_allow_html=True)
+            col2.image(df.iloc[i,1], width=70)
+            col3.markdown('<p style= "font-size: 32px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
+            col4.markdown('<p style= "font-size: 32px;">{}</p>'.format(df.iloc[i,2]), unsafe_allow_html=True)
     elif metric == "Assists per Game":
         sql_metric = f"SELECT p.name, p.img, p.apg FROM nba_players p, play_at pa WHERE p.name = pa.player_name AND p.dob = pa.player_dob {conditions} GROUP ORDER BY 3 DESC;"
         df = query_db(sql_metric)
         for i in range(len(df)):
-            col1.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(i+1), unsafe_allow_html=True)
-            col2.image(df.iloc[i,1])
-            col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
-            col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,2]), unsafe_allow_html=True)
+            col1.markdown('<p style= "font-size: 32px;">{}</p>'.format(i+1), unsafe_allow_html=True)
+            col2.image(df.iloc[i,1], width=70)
+            col3.markdown('<p style= "font-size: 32px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
+            col4.markdown('<p style= "font-size: 32px;">{}</p>'.format(df.iloc[i,2]), unsafe_allow_html=True)
 
 def news():
     balloon = st.sidebar.selectbox("Balloons", ["All balloons"] + ["have a look"])
