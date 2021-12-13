@@ -376,11 +376,20 @@ insert into Date (date) values ('2021-10-19');
 insert into Date (date) values ('2022-01-25');
 insert into Date (date) values ('2021-12-10');
 insert into Date (date) values ('2021-12-11');
+insert into Date (date) values ('2016-06-02');
+insert into Date (date) values ('2016-06-05');
+insert into Date (date) values ('2016-06-08');
+insert into Date (date) values ('2016-06-10');
+insert into Date (date) values ('2016-06-13');
+insert into Date (date) values ('2016-06-16');
+insert into Date (date) values ('2016-06-19');
+
 
 insert into Match_type (name) values ('preseason');
 insert into Match_type (name) values ('regular season');
 insert into Match_type (name) values ('postseason');
 insert into Match_type (name) values ('NBA Finals');
+
 
 insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
   values ('Los Angeles Lakers', 'Brooklyn Nets', '2021-10-03', 97, 123, 'preseason','Staples Center');
@@ -388,15 +397,12 @@ insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena)
   values ('Los Angeles Lakers', 'Golden State Warriors', '2021-10-19', 114, 121, 'regular season','Staples Center');
 insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
   values ('Milwaukee Bucks', 'Brooklyn Nets', '2021-10-19', 127, 104, 'regular season','Fiserv Forum');
-
 insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
   values ('Milwaukee Bucks', 'Brooklyn Nets', '2021-06-10', 86, 83, 'postseason','Fiserv Forum');
 insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
   values ('Utah Jazz', 'Los Angeles Clippers', '2021-06-10', 117, 111, 'postseason','Vivint Arena');
-
 insert into Match (host, guest, m_date, m_type, arena) 
   values ('Brooklyn Nets', 'Los Angeles Lakers', '2022-01-25', 'regular season', 'Barclays Center');
-
 
 insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
   values ('Charlotte Hornets', 'Sacramento Kings', '2021-12-10', 124, 123, 'regular season','Spectrum Center');
@@ -432,6 +438,20 @@ insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena)
 insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
   values ('San Antonio Spurs', 'Denver Nuggets', '2021-12-11', 112, 127, 'regular season','AT&T Center');
 
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Golden State Warriors', 'Cleveland Cavaliers', '2016-06-02', 104, 89, 'NBA Finals', 'Chase Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Golden State Warriors', 'Cleveland Cavaliers', '2016-06-05', 110, 77, 'NBA Finals', 'Chase Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Cleveland Cavaliers', 'Golden State Warriors', '2016-06-08', 120, 90, 'NBA Finals', 'Rocket Mortgage FieldHouse');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Cleveland Cavaliers', 'Golden State Warriors', '2016-06-10', 97, 108, 'NBA Finals', 'Rocket Mortgage FieldHouse');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Golden State Warriors', 'Cleveland Cavaliers', '2016-06-13', 97, 112, 'NBA Finals', 'Chase Center');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Cleveland Cavaliers', 'Golden State Warriors', '2016-06-16', 115, 101, 'NBA Finals', 'Rocket Mortgage FieldHouse');
+insert into Match (host, guest, m_date, score_host, score_guest, m_type, arena) 
+  values ('Golden State Warriors', 'Cleveland Cavaliers', '2016-06-19', 89, 93, 'NBA Finals', 'Chase Center');
 
 
 insert into Position (name, abbr) values ('Small forward', 'SF');
@@ -940,3 +960,27 @@ insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '202
 insert into Injuries (name, date, player_name, player_dob) values ('Ankle', '2021-04-28', 'Giannis Antetokounmpo', '1994-12-06');
 insert into Injuries (name, date, player_name, player_dob) values ('Knee', '2021-04-03', 'Giannis Antetokounmpo', '1994-12-06');
 insert into Injuries (name, date, player_name, player_dob) values ('Knee', '2021-03-27', 'Giannis Antetokounmpo', '1994-12-06');
+
+
+insert into Crimes (name, date, player_name, player_dob) values ('flagrant 2 foul', '2021-11-21', 'LeBron James', '1984-12-30');
+insert into Crimes (name, date, player_name, player_dob) values ('leave Cleveland', '2010-07-21', 'LeBron James', '1984-12-30');
+insert into Crimes (name, date, player_name, player_dob) values ('fly over John Lucas head', '2012-01-29', 'LeBron James', '1984-12-30');
+insert into Crimes (name, date, player_name, player_dob) values ('come back from 1-3 defcit', '2016-06-19', 'LeBron James', '1984-12-30');
+insert into Crimes (name, date, player_name, player_dob) values ('unbelievable chase down block', '2016-06-19', 'LeBron James', '1984-12-30');
+insert into Crimes (name, date, player_name, player_dob) values ('Championship during lockdown', '2020-09-19', 'LeBron James', '1984-12-30');
+insert into Crimes (name, date, player_name, player_dob) values ('sign with Warriors', '2016-07-04', 'Kevin Durant', '1988-09-29');
+insert into Crimes (name, date, player_name, player_dob) values ('sign with Nets', '2019-07-10', 'Kevin Durant', '1988-09-29');
+insert into Crimes (name, date, player_name, player_dob) values ('10 turnovers', '2021-10-28', 'Russell Westbrook', '1988-11-12');
+insert into Crimes (name, date, player_name, player_dob) values ('conflict with KD', '2017-11-23', 'Russell Westbrook', '1988-11-12');
+insert into Crimes (name, date, player_name, player_dob) values ('slam dunk over car', '2011-02-20', 'Blake Griffin', '1989-03-16');
+insert into Crimes (name, date, player_name, player_dob) values ('dunk over Gasol', '2012-04-05', 'Blake Griffin', '1989-03-16');
+insert into Crimes (name, date, player_name, player_dob) values ('12 three-pointers', '2016-02-28', 'Stephen Curry', '1988-03-14');
+insert into Crimes (name, date, player_name, player_dob) values ('62 points in a game', '2021-01-03', 'Stephen Curry', '1988-03-14');
+insert into Crimes (name, date, player_name, player_dob) values ('refuse receive covid vaccine', '2021-07-10', 'Kyrie Irving', '1992-03-23');
+insert into Crimes (name, date, player_name, player_dob) values ('fatal three pointer', '2016-06-19', 'Kyrie Irving', '1992-03-23');
+insert into Crimes (name, date, player_name, player_dob) values ('possession of marijuana', '2004-11-23', 'Carmelo Anthony', '1984-05-29');
+insert into Crimes (name, date, player_name, player_dob) values ('fight in th court', '2006-12-17', 'Carmelo Anthony', '1984-05-29');
+insert into Crimes (name, date, player_name, player_dob) values ('arrested drunk driving', '2008-04-14', 'Carmelo Anthony', '1984-05-29');
+insert into Crimes (name, date, player_name, player_dob) values ('fight with KG', '2013-01-09', 'Carmelo Anthony', '1984-05-29');
+
+
