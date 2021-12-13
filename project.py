@@ -346,11 +346,87 @@ def leaderboard():
             col3.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,0]), unsafe_allow_html=True)
             col4.markdown('<p style= "font-size: 31.6px;">{}</p>'.format(df.iloc[i,2]), unsafe_allow_html=True)
 
+def news():
+    balloon = st.sidebar.selectbox("Balloons", ["All balloons"] + ["have a look"])
+    if balloon != "All balloons":
+        st.balloons()
+
+    col1, col2 = st.columns([7, 3])
+    col1.write("### 1. **Which country has second most players in our database?** :blush:")
+    my_question1 = col2.expander("answer", expanded = False)
+    with my_question1:
+        sql = "SELECT count(*), nationality FROM NBA_Players GROUP BY nationality ORDER BY 1 DESC"
+        df = query_db(sql)
+        for i in range(len(df)):
+            if (df.iloc[i,0] == df.iloc[1,0]):
+                st.write("### " + df.iloc[i,1])
+
+    col1, col2 = st.columns([7, 3])
+    col1.write("### 2. **Which arenas have the biggest and the smallest capacity?** :sunglasses:")
+    my_question2 = col2.expander("answer", expanded = False)
+    with my_question2:
+        sql = "SELECT name, city, capacity FROM Arenas ORDER BY capacity DESC"
+        df = query_db(sql)
+        st.write("### biggest: {}, {}, {} seats".format(df.iloc[0,0], df.iloc[0,1], df.iloc[0,2]))
+        st.write("### smallest: {}, {}, {} seats".format(df.iloc[-1,0], df.iloc[-1,1], df.iloc[-1,2]))
+
+    col1, col2 = st.columns([7, 3])
+    col1.write("### 3. **Which player in our database played in the biggest arena?** :heart_eyes:")
+    my_question2 = col2.expander("answer", expanded = False)
+    with my_question2:
+        sql = "SELECT p.name FROM Arenas a, Match m, NBA_Players p WHERE a.name = m.arena AND (p.t_name = m.host OR p.t_name = m.guest) AND m.arena in (SELECT name FROM Arenas WHERE capacity in (SELECT max(capacity) FROM Arenas))"
+        df = query_db(sql)
+        for i in range(len(df)):
+            st.write("### " + df.iloc[i,0])
+
+    col1, col2 = st.columns([7, 3])
+    col1.write("### 4. **Which team ever scored over 110 but still lose the game?** :relieved:")
+    my_question2 = col2.expander("answer", expanded = False)
+    with my_question2:
+        sql = "SELECT DISTINCT host FROM Match WHERE (score_host >= 110 AND score_host < score_guest) UNION SELECT DISTINCT guest FROM Match WHERE (score_guest >= 110 AND score_host > score_guest)"
+        df = query_db(sql)
+        for i in range(len(df)):
+            st.write("### " + df.iloc[i,0])
+
+    col1, col2 = st.columns([7, 3])
+    col1.write("### 5. **Which player in our database has the most crime records?** :wink:")
+    my_question2 = col2.expander("answer", expanded = False)
+    with my_question2:
+        sql_p = "SELECT player_name FROM Crimes GROUP BY player_name ORDER BY COUNT(*) DESC LIMIT 1"
+        sql_c = "SELECT name, date FROM Crimes WHERE player_name in (" + sql_p + ")"
+        df_p = query_db(sql_p)
+        st.write("### {}:".format(df_p.iloc[0,0]))
+        df_c = query_db(sql_c)
+        for i in range(len(df_c)):
+            st.write("### {}, {}".format(df_c.iloc[i,0], df_c.iloc[i,1]))
+
+    col1, col2 = st.columns([7, 3])
+    col1.write("### 6. **Which match in our database have top 3 highest score difference?** :satisfied:")
+    my_question2 = col2.expander("answer", expanded = False)
+    with my_question2:
+        sql = "SELECT host, score_host, m_date, score_guest, guest FROM Match WHERE score_host is not NULL ORDER BY ABS(score_guest - score_host) DESC LIMIT 3"
+        df = query_db(sql)
+        for i in range(len(df)):
+            st.metric(f"{df.iloc[i,0]}", value = '{:d}'.format(int(df.iloc[i,1])), delta = int(df.iloc[i,1] - df.iloc[i,3]))
+            st.write("## Date: {}".format(df.iloc[i,2]))
+            st.metric(f"{df.iloc[i,4]}", value = '{:d}'.format(int(df.iloc[i,3])), delta = int(df.iloc[i,3] - df.iloc[i,1]))
+            if (i != len(df) - 1): st.write("-------------------------")
+
+    st.write("-------------------------")
+    col1, col2 = st.columns([5, 5])
+    with col1:
+        st.header("Jokic is furious! :cop:")
+        st.video("https://www.youtube.com/watch?v=Yy8T53X_fx0")
+    with col2:
+        st.header("Stewart is hot! :collision:")
+        st.video("https://www.youtube.com/watch?v=rIMw4mPRz6Y")
+
 
 PAGES = OrderedDict([
     ("Matches", matches),
     ("Players", players),
-    ("Leaderboard", leaderboard)
+    ("Leaderboard", leaderboard),
+    ("News", news)
     ])
 
 def run():
